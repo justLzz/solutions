@@ -36,12 +36,14 @@
 - #### hadoop
 ***
 ## web代理服务器
+### 1、nginx
 ***
 ## 网关
+### 1、kong
 ***
 ## 消息队列
-### 一，rabbitmq
-### 二，kafka
+### 1、rabbitmq
+### 2、kafka
 ***
 ## 微服务
 ### 1、容器
