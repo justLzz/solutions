@@ -1,5 +1,5 @@
 <?php
-require '../autoloader.php';
+require '/html/www/Solutions/autoloader.php';
 use Solutions\Amqp\Publisher;
 
 $a = new Publisher();
