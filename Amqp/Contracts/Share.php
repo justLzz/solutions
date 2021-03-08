@@ -17,16 +17,17 @@ abstract class Share implements Common {
         'exchangeName' => 'test',
         'exchangeType' => 'fanout',
         'exchangeArguments' => [],
+        'exchangeFlags' => [],
         'queueName' => 'test',
-        'queueFlags' => '',
+        'queueFlags' => [],
         'routeKey' => 'test'
     ];
 
-    protected $connection;
+    public $connection;
 
-    protected $channel;
+    public $channel;
 
-    protected $exchange;
+    public $exchange;
 
     public $queue;
 
@@ -62,6 +63,12 @@ abstract class Share implements Common {
         $ex->setName($this->config['exchangeName']);
         if ($this->config['exchangeType']) $ex->setType($this->config['exchangeType']);
         if (!empty($this->config['exchangeArguments'])) $ex->setArguments($this->config['exchangeArguments']);
+        if (!empty($this->config['exchangeFlags'])) {
+            foreach ($this->config['exchangeFlags'] as $item)
+            {
+                if (is_int($item)) $ex->setFlags($item);
+            }
+        }
         $ex->declareExchange();
         return $ex;
     }
@@ -70,7 +77,12 @@ abstract class Share implements Common {
     {
         $queue = new \AMQPQueue($this->channel);
         $queue->setName($this->config['queueName']);
-        if ($this->config['queueFlags']) $queue->setFlags($this->config['queueFlags']);
+        if (!empty($this->config['queueFlags'])) {
+            foreach ($this->config['queueFlags'] as $item)
+            {
+                if (is_int($item)) $queue->setFlags($item);
+            }
+        }
         $queue->declareQueue();
         $queue->bind($this->config['exchangeName'], $this->config['routeKey']);
         return $queue;
@@ -88,11 +100,15 @@ abstract class Share implements Common {
         $this->config['exchangeArguments'] = $arguments;
         return $this;
     }
+    function setExchangeFlags(Array $flags) {
+        $this->config['exchangeFlags'] = $flags;
+        return $this;
+    }
     function setQueueName(String $name) {
         $this->config['queueName'] = $name;
         return $this;
     }
-    function setQueueFlags(Int $flags) {
+    function setQueueFlags(Array $flags) {
         $this->config['queueFlags'] = $flags;
         return $this;
     }
