@@ -4,6 +4,7 @@ require '/html/www/Solutions/autoloader.php';
 
 use Solutions\Database\Nosql\Redis\DistributedLock\Simple;
 
+$workerId = $argv[1]; //swoole多进程传入的工作进程id
 $scene = 'secondKill';
 
 $lockTool = new Simple();
@@ -15,7 +16,7 @@ if ($lock)
         sleep(2);
     } finally {
         $lockTool->unlock($scene);
-        echo '获取到锁处理完毕并删除锁' . PHP_EOL;
+        echo $workerId  . '进程获取到锁处理完毕并删除锁' . PHP_EOL;
     }
 } else {
     echo '未获取到锁' . PHP_EOL;
