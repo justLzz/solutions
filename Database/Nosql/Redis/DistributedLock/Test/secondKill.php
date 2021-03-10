@@ -19,7 +19,7 @@ if ($lock)
         echo $workerId  . '进程获取到锁处理完毕并删除锁' . PHP_EOL;
     }
 } else {
-    echo '未获取到锁' . PHP_EOL;
+    echo $workerId  . '未获取到锁' . PHP_EOL;
 }
 
 //Swoole模拟多进程获取锁详见Test
