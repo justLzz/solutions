@@ -37,6 +37,24 @@ class DealArray
         return $list;
     }
 
+    //引用处理无限极分类
+    public function quoteInfinite(Array $array)
+    {
+        $list = [];
+        foreach ($array as $k=>$v) {
+            $list[$v['id']] = $v;
+        }
+        $tree = [];
+        foreach ($list as $k => $v) {
+            if (isset($list[$v['pid']])) {
+                $list[$v['pid']]['son'][] = &$list[$k];
+            } else {
+                $tree[] = &$list[$k];
+            }
+        }
+
+        return $tree;
+    }
 }
 
 $a = [ [ 'id'=>1, 'pid'=>0 ],
@@ -50,4 +68,5 @@ $a = [ [ 'id'=>1, 'pid'=>0 ],
         [ 'id'=>9, 'pid'=>3 ] ];
 
 $b = new DealArray();
-var_dump($b->recursionInfinite($a));
+//var_dump($b->recursionInfinite($a));
+var_dump($b->quoteInfinite($a));
