@@ -1,6 +1,6 @@
 <?php
 
-namespace Solutions\Language\Php\Base\CommonFunction;
+namespace Solutions\Language\Php\Base\DealFunction;
 
 /**
  * php处理文件/文件夹

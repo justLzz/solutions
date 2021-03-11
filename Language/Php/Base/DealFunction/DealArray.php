@@ -1,6 +1,6 @@
 <?php
 
-namespace Solutions\Language\Php\Base\CommonFunction;
+namespace Solutions\Language\Php\Base\DealFunction;
 
 /**
  * 常用处理数组方法
