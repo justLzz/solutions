@@ -33,9 +33,12 @@ class Mysql
                 $this->config['hostname'],
                 $this->config['charset']);
             try {
-                $this->pdo = new \PDO($dsn, $this->config['username'], $this->config['password'], [
-                    \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
-                ]);
+                $this->pdo = new \PDO($dsn, $this->config['username'], $this->config['password']);
+                $this->pdo->setAttribute(\PDO::ATTR_PERSISTENT, true); // 设置数据库连接为持久连接
+                $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); // 设置抛出错误
+                $this->pdo->setAttribute(\PDO::ATTR_ORACLE_NULLS, true); // 设置当字符串为空转换为 SQL 的 NULL
+                $this->pdo->setAttribute(\PDO::ATTR_AUTOCOMMIT, false);//关闭事务自动提交
+                $this->pdo->query('SET NAMES utf8'); // 设置数据库编码
             } catch (\Exception $exception) {
                 echo $exception->getMessage();
             }
@@ -49,13 +52,13 @@ class Mysql
         return $this;
     }
 
-    public function where(String $file, $value)
+    public function where(String $file, $con, $value)
     {
         if (strstr($this->prepareSql, 'WHERE'))
         {
-            $this->prepareSql .= 'AND ' . $file . '=? ';
+            $this->prepareSql .= 'AND ' . $file . $con . '? ';
         } else {
-            $this->prepareSql .= 'WHERE ' . $file . '=? ';
+            $this->prepareSql .= 'WHERE ' . $file . $con . '? ';
         }
 
         array_push($this->values,$value);
@@ -64,9 +67,8 @@ class Mysql
     }
 
     //只有select语句需要
-    public function field(Array $array)
+    public function field(String $fields)
     {
-        $fields = implode(',', $array);
         $this->prepareSql = $fields . ' FROM ' . $this->prepareSql;
         return $this;
     }
@@ -74,8 +76,8 @@ class Mysql
     public function select()
     {
         try {
-            $this->prepareSql = 'SELECT ' . $this->prepareSql;
-            $pre = $this->pdo->prepare($this->prepareSql);
+            $preSql = stripos($this->prepareSql, 'FROM') === false ? 'SELECT * FROM ' : 'SELECT ';
+            $pre = $this->pdo->prepare($preSql . $this->prepareSql);
             $pre->execute($this->values);
             $res = $pre->fetchAll(\PDO::FETCH_ASSOC);
             //清空语句和值
@@ -109,6 +111,32 @@ class Mysql
             $pre = $this->pdo->prepare($this->prepareSql);
             $values = array_values($data);
             $this->prepareSql = '';
+            return $pre->execute($values);
+        } catch (\Exception $exception) {
+            echo $exception->getMessage();
+        }
+    }
+
+    public function update(Array $array)
+    {
+        try {
+            $updateFields = '';
+            $i = 1;
+            foreach ($array as $k=>$v)
+            {
+                if ($i == count($array))
+                {
+                    $updateFields .= $k . '=?' ;
+                } else {
+                    $updateFields .= $k . '=?,';
+                }
+                $i++;
+            }
+            $this->prepareSql = substr_replace($this->prepareSql, 'UPDATE ' . $this->table . ' SET ' . $updateFields, 0,strlen($this->table));
+            $values = array_merge(array_values($array),$this->values);
+            $pre = $this->pdo->prepare($this->prepareSql);
+            $this->prepareSql = '';
+            $this->values = [];
             return $pre->execute($values);
         } catch (\Exception $exception) {
             echo $exception->getMessage();
