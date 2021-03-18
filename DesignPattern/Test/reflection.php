@@ -20,7 +20,7 @@ use Solutions\DesignPattern\Di\Reflection\Di;
 //
 ////获取构造方法参数
 //$constructor->getParameters();
-
+//通过反射，实现依赖注入
 $di = new Di;
 $c = $di->make(Circle::class);
 var_dump($c->area());
