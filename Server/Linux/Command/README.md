@@ -11,3 +11,5 @@ ps aux|grep "进程名"|grep -v grep|cut -c 9-15|xargs kill -9
 ```$xslt
 docker start $(docker ps -a | awk '{ print $1}' | tail -n +2)
 ```
+
+
