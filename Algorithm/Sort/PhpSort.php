@@ -38,10 +38,33 @@ class PhpSort
         return $arr;
     }
 
+    //插入排序
+    public function insertSort($arr)
+    {
+        for ($i=1;$i<count($arr);$i++)
+        {
+            $j = $i - 1;
+            $tmp = $arr[$i];
+            while ($arr[$j] > $tmp)//从小到大
+            {
+                list($arr[$j],$arr[$j+1]) = [$arr[$j+1], $arr[$j]];//没找到就跟他的前位交换位置
+                $j--;
+            }
+        }
+        return $arr;
+    }
+
+    //快速排序
+    public function quickSort($arr)
+    {
+
+        return $arr;
+    }
+
 }
 
 $arr = [12,8,3,7,2,83,75,6,78,34,89,10,11];
 $sort = new PhpSort();
-var_dump($sort->selectSort($arr));
+var_dump($sort->insertSort($arr));
 
 
