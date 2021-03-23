@@ -57,14 +57,31 @@ class PhpSort
     //快速排序
     public function quickSort($arr)
     {
+        $count = count($arr);
+        if($count <= 1) return $arr;
+        $key = $arr[0];
+        $left = [];
+        $right = [];
+        for ($i=1;$i<count($arr);$i++)
+        {
 
-        return $arr;
+            if ($arr[$i] < $key)
+            {
+                $left[] = $arr[$i];
+            }else{
+                $right[] = $arr[$i];
+            }
+
+        }
+        $left = $this->quickSort($left);
+        $right = $this->quickSort($right);
+        return array_merge($left,(array)$key,$right);
     }
 
 }
 
 $arr = [12,8,3,7,2,83,75,6,78,34,89,10,11];
 $sort = new PhpSort();
-var_dump($sort->insertSort($arr));
+var_dump($sort->quickSort($arr));
 
 
