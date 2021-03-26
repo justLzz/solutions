@@ -72,3 +72,13 @@ function __call(string $function_name, array $arguments)
 1，__set( property,property,value )` 方法用来设置私有属性， 给一个未定义的属性赋值时，此方法会被触发，传递的参数是被设置的属性名和值。
 
 ### 七、 __isset()，当对不可访问属性调用isset()或empty()时调用
+### 八、 __unset()，当对不可访问属性调用unset()时被调用。
+### 九、 __sleep()，执行serialize()时，先会调用这个函数
+1， serialize() — 产生一个可存储的值的表示。
+### 十、 __wakeup()，执行unserialize()时，先会调用这个函数
+### 十一、 __toString()，类被当成字符串时的回应方法
+### 十二、 __invoke()，调用函数的方式调用一个对象时的回应方法
+### 十三、 __set_state()，调用var_export()导出类时，此静态方法会被调用。
+### 十四、 __clone()，当对象复制完成时调用
+### 十五、__autoload()，尝试加载未定义的类
+### 十六、__debugInfo()，打印所需调试信息
