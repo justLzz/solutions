@@ -5,6 +5,11 @@ namespace Solutions\Database\Nosql\Redis\DistributedLock;
 
 use Solutions\Database\Nosql\Redis\Redis;
 
+/**
+ * redis获取锁的方式类似于悲观锁
+ * Class Simple
+ * @package Solutions\Database\Nosql\Redis\DistributedLock
+ */
 class Simple implements LockInterface
 {
     public $redis = null;
