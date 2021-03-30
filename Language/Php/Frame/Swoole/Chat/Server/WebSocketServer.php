@@ -3,6 +3,7 @@
 
 namespace Solutions\Language\Php\Frame\Swoole\Chat\Server;
 
+use Solutions\Database\Sql\Mysql\Mysql;
 
 class WebSocketServer
 {
@@ -14,8 +15,18 @@ class WebSocketServer
             echo "server: handshake success with fd{$request->fd}\n";
         });
         $this->server->on('message', function (\Swoole\WebSocket\Server $server, $frame) {
-            echo "receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
-            $server->push($frame->fd, "已收到消息，正在处理");
+ //           echo "receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
+            $server->push($frame->fd, "已收到消息，正在获取用户信息...");
+            $content = json_decode($frame->data,true);
+            $rs = $this->dealContent((int)$content['content']);
+            if (!empty($rs)) {
+                foreach ($rs as $k=>$v)
+                {
+                    $server->push($frame->fd, $k . '：' . $v);
+                }
+            } else {
+                $server->push($frame->fd, "用户不存在！");
+            }
             $server->push($frame->fd, "处理完毕！");
         });
         $this->server->on('close', function ($ser, $fd) {
@@ -32,6 +43,17 @@ class WebSocketServer
             }
         });
         $this->server->start();
+    }
+
+    public function dealContent(Int $content)
+    {
+        $user = [];
+        if ($content)
+        {
+            $db = new Mysql();
+            $user = $db->table('test')->where('id','=',$content)->first();
+        }
+        return $user;
     }
 
 }

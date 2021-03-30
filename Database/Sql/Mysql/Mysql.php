@@ -89,6 +89,11 @@ class Mysql
         }
     }
 
+    public function first()
+    {
+        return $this->select()[0];
+    }
+
     public function insert(Array $data)
     {
         try {
