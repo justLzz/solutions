@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LayIM测试</title>
+    <link rel="stylesheet" href="/html/js/layim/css/layui.css" rel="external nofollow" media="all"></head><body><script src="/html/js/layim/layui.js"></script><script>
+    layui.use('layim', function (layim) {
+        var socket = new WebSocket('ws://localhost:8000/send');
+        layim.config({
+            init: {
+                url: "/main",
+                type: "get",
+                data: {}
+            },
+            members: {
+                url: "",
+                type: 'post',
+                data: {id: 1},
+            }, isAudio: true
+            , isVideo: true,
+            right: "10px"
+            //扩展工具栏
+            , brief: false //是否简约模式（如果true则不显示主面板）
+
+        });
+        layim.on('sendMessage', function (res) {
+            var mine = res.mine;
+            socket.send(JSON.stringify({
+                type: 'chatMessage' //随便定义，用于在服务端区分消息类型
+                , data: res
+            }));
+
+        });
+        socket.onmessage = function (res) {
+            layim.getMessage({
+                username: "图灵机器人"
+                , avatar: "../static/img/100.jpg"
+                , id: "1
+                , type: "friend"
+                , content: res.data
+                , cid: 0
+                , mine: false
+                , fromid: "1"
+            });
+        };
+    });
+</script>
+</body>
+</html>
