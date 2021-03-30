@@ -17,5 +17,17 @@ uname -a;
 cat /proc/version;
 ```
 
+## 文本编写
+### cat
+```$xslt
+1,
+cat > file.txt << 'EOF'
+sss
+fff
+dff
+EOF
+
+```
+
 
 
