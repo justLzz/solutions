@@ -1,5 +1,5 @@
 <?php
-namespace Solutions\Amqp\Contracts;
+namespace Justlzz\Solutions\Amqp\Contracts;
 
 interface Common {
     function init();

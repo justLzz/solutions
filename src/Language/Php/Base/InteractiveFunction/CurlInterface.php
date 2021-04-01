@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\Language\Php\Base\InteractiveFunction;
+namespace Justlzz\Solutions\Language\Php\Base\InteractiveFunction;
 
 
 interface CurlInterface

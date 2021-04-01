@@ -1,10 +1,10 @@
 <?php
 
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\DesignPattern\Strategy\Women;
-use Solutions\DesignPattern\Strategy\Man;
-use Solutions\DesignPattern\Strategy\Strategy;
+use Justlzz\Solutions\DesignPattern\Strategy\Women;
+use Justlzz\Solutions\DesignPattern\Strategy\Man;
+use Justlzz\Solutions\DesignPattern\Strategy\Strategy;
 
 $strategy = new Strategy();
 

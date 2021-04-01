@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\DesignPattern\Di\Reflection;
+namespace Justlzz\Solutions\DesignPattern\Di\Reflection;
 
 
 class Point

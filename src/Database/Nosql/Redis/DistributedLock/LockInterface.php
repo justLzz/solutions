@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\Database\Nosql\Redis\DistributedLock;
+namespace Justlzz\Solutions\Database\Nosql\Redis\DistributedLock;
 
 
 interface LockInterface

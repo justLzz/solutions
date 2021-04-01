@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\DesignPattern\Adapter;
+namespace Justlzz\Solutions\DesignPattern\Adapter;
 
 
 class OldEq implements EqInterface

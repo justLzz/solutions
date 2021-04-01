@@ -1,7 +1,7 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\Language\Php\Base\InteractiveFunction\CurlPost;
+use Justlzz\Solutions\Language\Php\Base\InteractiveFunction\CurlPost;
 
 //要发送的邮件的内容
 $post_data = array(

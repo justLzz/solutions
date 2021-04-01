@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\Database\Contracts;
+namespace Justlzz\Solutions\Database\Contracts;
 
 /**
  * 数据库通用接口

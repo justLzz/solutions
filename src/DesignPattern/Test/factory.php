@@ -1,8 +1,8 @@
 <?php
 
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\DesignPattern\Factory\Simple;
+use Justlzz\Solutions\DesignPattern\Factory\Simple;
 
 $tool = (new Simple)->tool('Hammer');
 

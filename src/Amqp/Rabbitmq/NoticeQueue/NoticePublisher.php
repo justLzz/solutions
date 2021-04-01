@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Solutions\Amqp\Rabbitmq\NoticeQueue;
+namespace Justlzz\Solutions\Amqp\Rabbitmq\NoticeQueue;
 
-use Solutions\Amqp\Publisher;
-use Solutions\Server\HttpServer\SwooleHttpServer;
+use Justlzz\Solutions\Amqp\Publisher;
+use Justlzz\Solutions\Server\HttpServer\SwooleHttpServer;
 
 /**
  * 用的是swoole提供的http服务

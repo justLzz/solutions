@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\DesignPattern\Factory;
+namespace Justlzz\Solutions\DesignPattern\Factory;
 
 
 interface Tool

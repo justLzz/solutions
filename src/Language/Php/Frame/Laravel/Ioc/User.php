@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\Language\Php\Frame\Laravel\Ioc;
+namespace Justlzz\Solutions\Language\Php\Frame\Laravel\Ioc;
 
 class User
 {

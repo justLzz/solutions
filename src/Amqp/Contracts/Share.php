@@ -1,5 +1,5 @@
 <?php
-namespace Solutions\Amqp\Contracts;
+namespace Justlzz\Solutions\Amqp\Contracts;
 
 abstract class Share implements Common {
     /*RabbitMQ常用的Exchange Type有三种：fanout、direct、topic。

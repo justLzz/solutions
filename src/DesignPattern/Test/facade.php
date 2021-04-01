@@ -1,7 +1,7 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\DesignPattern\Facade\Facade;
+use Justlzz\Solutions\DesignPattern\Facade\Facade;
 //开幕
 (new Facade)->start();
 

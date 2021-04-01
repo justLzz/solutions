@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\DesignPattern\Strategy;
+namespace Justlzz\Solutions\DesignPattern\Strategy;
 
 
 class Man implements People

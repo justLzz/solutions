@@ -1,7 +1,7 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\Database\Sql\Mysql\Mysql;
+use Justlzz\Solutions\Database\Sql\Mysql\Mysql;
 
 //分别开两个客户端运行两个脚本
 $mysql = new Mysql();

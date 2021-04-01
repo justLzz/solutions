@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\DesignPattern\Decorator;
+namespace Justlzz\Solutions\DesignPattern\Decorator;
 
 //装饰器需要实现的接口
 interface Decorator

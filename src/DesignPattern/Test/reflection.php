@@ -1,8 +1,8 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\DesignPattern\Di\Reflection\Circle;
-use Solutions\DesignPattern\Di\Reflection\Di;
+use Justlzz\Solutions\DesignPattern\Di\Reflection\Circle;
+use Justlzz\Solutions\DesignPattern\Di\Reflection\Di;
 
 //$reflectionClass =  new reflectionClass(Circle::class);
 //

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\DesignPattern\Observer;
+namespace Justlzz\Solutions\DesignPattern\Observer;
 
 
 class Sms implements Obs

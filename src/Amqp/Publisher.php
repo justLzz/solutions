@@ -1,7 +1,7 @@
 <?php
-namespace Solutions\Amqp;
+namespace Justlzz\Solutions\Amqp;
 
-use Solutions\Amqp\Contracts\Share;
+use Justlzz\Solutions\Amqp\Contracts\Share;
 
 Class Publisher extends Share{
 

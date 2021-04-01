@@ -1,6 +1,6 @@
 <?php
 
-namespace Solutions\DesignPattern\Factory;
+namespace Justlzz\Solutions\DesignPattern\Factory;
 
 class Simple
 {

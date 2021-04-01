@@ -2,9 +2,9 @@
 /**
  * 获取redis单例
  */
-namespace Solutions\Database\Nosql\Redis;
+namespace Justlzz\Solutions\Database\Nosql\Redis;
 
-use Solutions\Database\Contracts\Common as DatabaseCommon;
+use Justlzz\Solutions\Database\Contracts\Common as DatabaseCommon;
 
 class Redis implements  DatabaseCommon{
 

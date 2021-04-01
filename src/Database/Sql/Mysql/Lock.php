@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Solutions\Database\Sql\Mysql;
+namespace Justlzz\Solutions\Database\Sql\Mysql;
 
-use Solutions\Database\Sql\Mysql\Mysql;
+use Justlzz\Solutions\Database\Sql\Mysql\Mysql;
 
 //数据库的锁
 class Lock extends Mysql

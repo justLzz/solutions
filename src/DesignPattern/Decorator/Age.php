@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\DesignPattern\Decorator;
+namespace Justlzz\Solutions\DesignPattern\Decorator;
 
 
 class Age implements Decorator

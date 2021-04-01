@@ -1,11 +1,11 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\Language\Php\Frame\Laravel\Ioc\Ioc;
-use Solutions\Language\Php\Frame\Laravel\Ioc\DbLog;
-use Solutions\Language\Php\Frame\Laravel\Ioc\FileLog;
-use Solutions\Language\Php\Frame\Laravel\Ioc\User;
-use Solutions\Language\Php\Frame\Laravel\Ioc\LogInterface;
+use Justlzz\Solutions\Language\Php\Frame\Laravel\Ioc\Ioc;
+use Justlzz\Solutions\Language\Php\Frame\Laravel\Ioc\DbLog;
+use Justlzz\Solutions\Language\Php\Frame\Laravel\Ioc\FileLog;
+use Justlzz\Solutions\Language\Php\Frame\Laravel\Ioc\User;
+use Justlzz\Solutions\Language\Php\Frame\Laravel\Ioc\LogInterface;
 
 $ioc = new Ioc;
 $ioc->bind(LogInterface::class, DbLog::class);

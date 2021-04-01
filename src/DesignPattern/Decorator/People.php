@@ -1,6 +1,6 @@
 <?php
 
-namespace Solutions\DesignPattern\Decorator;
+namespace Justlzz\Solutions\DesignPattern\Decorator;
 
 //装饰器应用场景，比如对一个方法进行装饰，再不改变原来方法的情况下，进行扩展
 class People

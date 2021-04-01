@@ -1,6 +1,6 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
-use Solutions\Amqp\Consumer;
+require '/html/www/Solutions/src/vendor/autoload.php';
+use Justlzz\Solutions\Amqp\Consumer;
 
 
 $a = new Consumer();

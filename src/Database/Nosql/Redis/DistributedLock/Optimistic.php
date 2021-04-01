@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Solutions\Database\Nosql\Redis\DistributedLock;
+namespace Justlzz\Solutions\Database\Nosql\Redis\DistributedLock;
 
-use Solutions\Database\Nosql\Redis\Redis;
+use Justlzz\Solutions\Database\Nosql\Redis\Redis;
 
 /**
  * 利用redis watch命令实现，类似于乐观锁

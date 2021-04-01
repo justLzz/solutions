@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\DesignPattern\Register;
+namespace Justlzz\Solutions\DesignPattern\Register;
 
 
 class Tree

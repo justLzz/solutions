@@ -1,8 +1,8 @@
 <?php
 
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\Database\Nosql\Redis\DistributedLock\Simple;
+use Justlzz\Solutions\Database\Nosql\Redis\DistributedLock\Simple;
 
 $workerId = $argv[1]; //swoole多进程传入的工作进程id
 $scene = 'secondKill';

@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Solutions\Language\Php\Frame\Swoole\Chat\Server;
+namespace Justlzz\Solutions\Language\Php\Frame\Swoole\Chat\Server;
 
-use Solutions\Database\Sql\Mysql\Mysql;
+use Justlzz\Solutions\Database\Sql\Mysql\Mysql;
 
 class WebSocketServer
 {

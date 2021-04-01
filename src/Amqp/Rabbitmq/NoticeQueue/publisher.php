@@ -1,6 +1,6 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\Amqp\Rabbitmq\NoticeQueue\NoticePublisher;
+use Justlzz\Solutions\Amqp\Rabbitmq\NoticeQueue\NoticePublisher;
 
 $pub = new NoticePublisher();

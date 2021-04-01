@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\DesignPattern\Facade;
+namespace Justlzz\Solutions\DesignPattern\Facade;
 
 
 class Stereo

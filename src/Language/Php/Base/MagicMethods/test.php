@@ -1,8 +1,8 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
-use Solutions\Language\Php\Base\MagicMethods\__CallMethod;
-use Solutions\Language\Php\Base\MagicMethods\__GetMethod;
-use Solutions\Language\Php\Base\MagicMethods\__SetMethod;
+require '/html/www/Solutions/src/vendor/autoload.php';
+use Justlzz\Solutions\Language\Php\Base\MagicMethods\__CallMethod;
+use Justlzz\Solutions\Language\Php\Base\MagicMethods\__GetMethod;
+use Justlzz\Solutions\Language\Php\Base\MagicMethods\__SetMethod;
 
 //__call
 $query = new __CallMethod();

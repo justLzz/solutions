@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Solutions\Server\HttpServer;
+namespace Justlzz\Solutions\Server\HttpServer;
 
 use Swoole\Http\Server;
 use Swoole\Http\Request;

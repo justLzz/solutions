@@ -1,10 +1,10 @@
 <?php
 
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\DesignPattern\Observer\LoginNotice;
-use Solutions\DesignPattern\Observer\Sms;
-use Solutions\DesignPattern\Observer\Email;
+use Justlzz\Solutions\DesignPattern\Observer\LoginNotice;
+use Justlzz\Solutions\DesignPattern\Observer\Sms;
+use Justlzz\Solutions\DesignPattern\Observer\Email;
 
 $data = '用户13214登录成功';
 

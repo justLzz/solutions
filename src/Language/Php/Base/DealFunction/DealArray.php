@@ -1,6 +1,6 @@
 <?php
 
-namespace Solutions\Language\Php\Base\DealFunction;
+namespace Justlzz\Solutions\Language\Php\Base\DealFunction;
 
 /**
  * 常用处理数组方法

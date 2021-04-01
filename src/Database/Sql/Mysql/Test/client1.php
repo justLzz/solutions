@@ -1,8 +1,8 @@
 <?php
 
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\Database\Sql\Mysql\Lock;
+use Justlzz\Solutions\Database\Sql\Mysql\Lock;
 
 try {
     $lock = new Lock();

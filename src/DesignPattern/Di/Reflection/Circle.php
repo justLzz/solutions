@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Solutions\DesignPattern\Di\Reflection;
+namespace Justlzz\Solutions\DesignPattern\Di\Reflection;
 
-use Solutions\DesignPattern\Di\Reflection\Point;
+use Justlzz\Solutions\DesignPattern\Di\Reflection\Point;
 
 class Circle
 {

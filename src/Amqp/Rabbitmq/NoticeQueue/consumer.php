@@ -1,6 +1,6 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\Amqp\Rabbitmq\NoticeQueue\NoticeConsumer;
+use Justlzz\Solutions\Amqp\Rabbitmq\NoticeQueue\NoticeConsumer;
 
 var_dump(new NoticeConsumer());

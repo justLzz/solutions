@@ -1,6 +1,6 @@
 <?php
 
-namespace Solutions\Algorithm\Sort;
+namespace Justlzz\Solutions\Algorithm\Sort;
 
 class PhpSort
 {
@@ -79,9 +79,5 @@ class PhpSort
     }
 
 }
-
-$arr = [12,8,3,7,2,83,75,6,78,34,89,10,11];
-$sort = new PhpSort();
-var_dump($sort->quickSort($arr));
 
 

@@ -1,9 +1,9 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
+require '/html/www/Solutions/src/vendor/autoload.php';
 
-use Solutions\DesignPattern\Decorator\People;
-use Solutions\DesignPattern\Decorator\Age;
-use Solutions\DesignPattern\Decorator\Sex;
+use Justlzz\Solutions\DesignPattern\Decorator\People;
+use Justlzz\Solutions\DesignPattern\Decorator\Age;
+use Justlzz\Solutions\DesignPattern\Decorator\Sex;
 
 $a = new People();
 $a->addDecorator(new Age());

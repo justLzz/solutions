@@ -1,6 +1,6 @@
 <?php
-require '/html/www/Solutions/autoloader.php';
-use Solutions\Amqp\Publisher;
+require '/html/www/Solutions/src/vendor/autoload.php';
+use Justlzz\Solutions\Amqp\Publisher;
 
 $a = new Publisher();
 $a->setExchangeName('delay-exchange-test')

@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Solutions\Amqp\Rabbitmq\NoticeQueue;
+namespace Justlzz\Solutions\Amqp\Rabbitmq\NoticeQueue;
 
-use Solutions\Amqp\Consumer;
+use Justlzz\Solutions\Amqp\Consumer;
 use AMQPEnvelope;
 class NoticeConsumer
 {
