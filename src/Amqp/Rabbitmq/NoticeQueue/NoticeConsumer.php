@@ -5,6 +5,8 @@ namespace Justlzz\Solutions\Amqp\Rabbitmq\NoticeQueue;
 
 use Justlzz\Solutions\Amqp\Consumer;
 use AMQPEnvelope;
+use Justlzz\Solutions\Language\Php\Base\ToolFunction\Email;
+
 class NoticeConsumer
 {
     public function __construct()
@@ -32,10 +34,28 @@ class NoticeConsumer
         }
     }
 
+    /**
+     * Notes:发送邮件
+     * User: Admin
+     * Date: 2021/4/1
+     * Time: 16:07
+     * @param $data
+     * @return bool
+     */
     public function sendEmail($data)
     {
-        var_dump($data);
+
+        $email = new Email();
+        $arrayData = json_decode($data,true);
+        if (!isset($arrayData['to'])) return false;
+        $content = $arrayData['data'];
+        $res = $email->from('www@***.net', '云表单邮件通知')
+                    ->to($arrayData['to'])
+                    ->emailTitle('您有一封新的邮件')
+                    ->emailContent($content)
+                    ->send();
         return true;
+
     }
 
 }

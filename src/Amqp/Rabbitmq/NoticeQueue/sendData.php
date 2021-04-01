@@ -13,7 +13,7 @@ $post_data = array(
 $jsonStr = json_encode($post_data);
 
 //要发送给的邮箱
-$email = "123@qq.com";
+$email = "1072084962@qq.com";
 
 //发送服务的地址
 $notice_url = 'http://127.0.0.1:9501';
