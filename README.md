@@ -1,4 +1,8 @@
 # 一些常用后端技术及解决方案
+
+```$xslt
+composer require justlzz/solutions
+```
 ***
 ## 服务器
 ### 1、linux
