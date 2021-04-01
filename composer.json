@@ -1,12 +1,14 @@
 {
     "name": "justlzz/solutions",
-    "description": "some important solutions for phpers",
+    "description": "some solutions for phper",
     "type": "project",
+    "license": "MIT",
     "authors": [
         {
             "name": "justLzz",
             "email": "1072084962@qq.com"
         }
     ],
+    "minimum-stability": "stable",
     "require": {}
 }
