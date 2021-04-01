@@ -22,9 +22,9 @@ abstract class SwooleHttpServer
             if ($this->dealData($data))
             {
                 $response->end('ok');
+            } else {
+                $response->end('error');
             }
-            $response->end('error');
-
         });
         $http->start();
     }
