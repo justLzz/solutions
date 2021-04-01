@@ -1,6 +1,6 @@
 <?php
 
-require '/html/www/Solutions/src/vendor/autoload.php';
+require '/html/www/Solutions/vendor/autoload.php';
 
 use Justlzz\Solutions\Database\Sql\Mysql\Lock;
 

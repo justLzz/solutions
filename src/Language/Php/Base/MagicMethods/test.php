@@ -1,5 +1,5 @@
 <?php
-require '/html/www/Solutions/src/vendor/autoload.php';
+require '/html/www/Solutions/vendor/autoload.php';
 use Justlzz\Solutions\Language\Php\Base\MagicMethods\__CallMethod;
 use Justlzz\Solutions\Language\Php\Base\MagicMethods\__GetMethod;
 use Justlzz\Solutions\Language\Php\Base\MagicMethods\__SetMethod;

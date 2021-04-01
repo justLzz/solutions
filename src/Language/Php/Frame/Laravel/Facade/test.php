@@ -1,6 +1,6 @@
 <?php
 
-require '/html/www/Solutions/src/vendor/autoload.php';
+require '/html/www/Solutions/vendor/autoload.php';
 
 use Justlzz\Solutions\Language\Php\Frame\Laravel\Ioc\Ioc;
 use Justlzz\Solutions\Language\Php\Frame\Laravel\Ioc\DbLog;

@@ -1,5 +1,5 @@
 <?php
-require '/html/www/Solutions/src/vendor/autoload.php';
+require '/html/www/Solutions/vendor/autoload.php';
 
 use Justlzz\Solutions\DesignPattern\Facade\Facade;
 //开幕
