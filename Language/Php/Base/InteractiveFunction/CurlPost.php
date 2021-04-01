@@ -20,6 +20,7 @@ class CurlPost implements CurlInterface
 
     public function setData(String $data)
     {
+        curl_setopt($this->handler, CURLOPT_HEADER, 0);
         curl_setopt($this->handler,CURLOPT_HTTPHEADER,array(
                 'Content-Type:application/json;charset=utf-8',
                 'Content-Length:'.strlen($data)

@@ -10,7 +10,7 @@ $post_data = array(
     "ip" => '123.123.123.123'
 );
 $jsonStr = json_encode($post_data);
-$email_url = 'http://127.0.0.1';
+$email_url = 'http://127.0.0.1:9501';
 
 $post = new CurlPost();
 $res = $post->setUrl($email_url)->setData($jsonStr)->send()->getResponse();
