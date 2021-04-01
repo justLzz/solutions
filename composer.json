@@ -1,0 +1,12 @@
+{
+    "name": "justlzz/solutions",
+    "description": "some important solutions for phpers",
+    "type": "project",
+    "authors": [
+        {
+            "name": "justLzz",
+            "email": "1072084962@qq.com"
+        }
+    ],
+    "require": {}
+}
