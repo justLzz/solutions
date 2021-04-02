@@ -17,6 +17,6 @@ $mqConfig->set('routeKey','notice-route');
 //邮件服务配置
 $mailConfig = new Config('mail');
 $email = new Email($mailConfig);
-$email->from('www@yunbd.net', '云表单邮件通知')->emailTitle('您有一封新的邮件');
+$email->from('www@yunbd.net', '云表单邮件通知');
 
 $consumer = new NoticeConsumer($mqConfig, $email);

@@ -26,7 +26,7 @@ class Email implements NoticeInterface
         if ($config['SMTPAuth']) $this->email->SMTPAuth = true;// 是否使用身份验证
         $this->email->Username = $config['username'];// 发送方的QQ邮箱用户名，就是自己的邮箱名
         $this->email->Password = $config['password'];// 发送方的邮箱密码，不是登录密码,是qq的第三方授权登录码,要自己去开启,在邮箱的设置->账户->POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 里面
-        $this->email->SMTPSecure = $config['ssl'];// 使用ssl协议方式,
+        $this->email->SMTPSecure = $config['SMTPSecure'];// 使用ssl协议方式,
         $this->email->Port = $config['port'];// QQ邮箱的ssl协议方式端口号是465/587
         //$mail->addCC("xxx@163.com");// 设置邮件抄送人，可以只写地址，上述的设置也可以只写地址(这个人也能收到邮件)
         //$mail->addBCC("xxx@163.com");// 设置秘密抄送人(这个人也能收到邮件)
@@ -58,7 +58,7 @@ class Email implements NoticeInterface
         return $this;
     }
 
-    public function to($email,$name='')
+    public function to($email)
     {
         $this->email->addAddress($email);// 设置收件人信息，如邮件格式说明中的收件人
         return $this;

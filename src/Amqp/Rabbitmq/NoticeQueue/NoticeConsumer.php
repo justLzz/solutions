@@ -35,8 +35,8 @@ class NoticeConsumer
         if (!isset($arrayData['to'])) return false;
         $res = $notice->to($arrayData['to'])
                     ->emailTitle($arrayData['title'])
-                    ->emailContent($arrayData['content']);
-        var_dump($res->send());
+                    ->emailContent($arrayData['content'])
+                    ->send();
         return $res;
     }
 
