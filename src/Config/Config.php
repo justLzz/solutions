@@ -8,13 +8,16 @@ class Config implements ConfigInterface
 {
     public $config;
 
-    public function __construct($configName)
+    /**
+     * Config constructor.
+     * @param $configName
+     * @param $configPath 配置文件路径
+     */
+    public function __construct($configName,$configPath = '')
     {
         $configFile = __DIR__ . DIRECTORY_SEPARATOR . $configName . '.php';
-        if (is_file($configFile))
-        {
-            $this->config = include_once $configFile;
-        }
+        if ($configPath) $configFile = $configPath . DIRECTORY_SEPARATOR . $configName . '.php';
+        if (is_file($configFile)) $this->config = include_once $configFile;
     }
 
 
