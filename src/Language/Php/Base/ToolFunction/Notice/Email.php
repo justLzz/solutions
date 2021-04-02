@@ -5,27 +5,29 @@ namespace Justlzz\Solutions\Language\Php\Base\ToolFunction\Notice;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Justlzz\Solutions\Config\ConfigInterface;
 
 /**
  * 依赖于php Email实现
  * Class Email
  * @package Justlzz\Solutions\Language\Php\Base\ToolFunction
  */
-class Email
+class Email implements NoticeInterface
 {
     public $email;
 
-    public function __construct()
+    public function __construct(ConfigInterface $config)
     {
+        $config = $config->toArray();
         $this->email = new PHPMailer();
-        $this->email->isSMTP();// 使用SMTP服务
-        $this->email->CharSet = "utf8";// 编码格式为utf8，不设置编码的话，中文会出现乱码
-        $this->email->Host = "smtp.mxhichina.com";// 发送方的SMTP服务器地址
-        $this->email->SMTPAuth = true;// 是否使用身份验证
-        $this->email->Username = "www@***.net";// 发送方的QQ邮箱用户名，就是自己的邮箱名
-        $this->email->Password = "***";// 发送方的邮箱密码，不是登录密码,是qq的第三方授权登录码,要自己去开启,在邮箱的设置->账户->POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 里面
-        $this->email->SMTPSecure = "ssl";// 使用ssl协议方式,
-        $this->email->Port = 465;// QQ邮箱的ssl协议方式端口号是465/587
+        if ($config['isSMTP']) $this->email->isSMTP();// 使用SMTP服务
+        $this->email->CharSet = $config['chartSet'];// 编码格式为utf8，不设置编码的话，中文会出现乱码
+        $this->email->Host = $config['host'];// 发送方的SMTP服务器地址
+        if ($config['SMTPAuth']) $this->email->SMTPAuth = true;// 是否使用身份验证
+        $this->email->Username = $config['username'];// 发送方的QQ邮箱用户名，就是自己的邮箱名
+        $this->email->Password = $config['password'];// 发送方的邮箱密码，不是登录密码,是qq的第三方授权登录码,要自己去开启,在邮箱的设置->账户->POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 里面
+        $this->email->SMTPSecure = $config['ssl'];// 使用ssl协议方式,
+        $this->email->Port = $config['port'];// QQ邮箱的ssl协议方式端口号是465/587
         //$mail->addCC("xxx@163.com");// 设置邮件抄送人，可以只写地址，上述的设置也可以只写地址(这个人也能收到邮件)
         //$mail->addBCC("xxx@163.com");// 设置秘密抄送人(这个人也能收到邮件)
         //$mail->addAttachment("bug0.jpg");// 添加附件
@@ -56,7 +58,7 @@ class Email
         return $this;
     }
 
-    public function to($email)
+    public function to($email,$name='')
     {
         $this->email->addAddress($email);// 设置收件人信息，如邮件格式说明中的收件人
         return $this;

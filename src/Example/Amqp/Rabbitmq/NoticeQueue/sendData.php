@@ -10,7 +10,12 @@ $post_data = array(
     "name" => '小李',
     "ip" => '123.123.123.123',
 );
-$jsonStr = json_encode($post_data);
+
+//邮件标题
+$title = '您有一封新的邮件';
+
+//邮件正文
+$content = json_encode($post_data);
 
 //要发送给的邮箱
 $email = "1072084962@qq.com";
@@ -20,7 +25,7 @@ $notice_url = 'http://127.0.0.1:9501';
 
 $post = new CurlPost();
 $res = $post->setUrl($notice_url)
-            ->setData(json_encode(['to'=>$email,'data'=>$jsonStr]))
+            ->setData(json_encode(['to'=>$email,'content'=>$content, 'title'=>$title]))
             ->send()
             ->getResponse();
 var_dump($res);

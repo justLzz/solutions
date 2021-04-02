@@ -5,7 +5,7 @@ namespace Justlzz\Solutions\Amqp\Rabbitmq\NoticeQueue;
 
 use Justlzz\Solutions\Amqp\Publisher;
 use Justlzz\Solutions\Server\HttpServer\SwooleHttpServer;
-
+use Justlzz\Solutions\Config\ConfigInterface;
 /**
  * 用的是swoole提供的http服务
  * Class NoticePublisher
@@ -15,27 +15,22 @@ class NoticePublisher extends SwooleHttpServer
 {
     public $mqHandler;
 
-    public function __construct()
+
+    public function __construct(ConfigInterface $config)
     {
-        $this->initPublisher();
+        $this->initPublisher($config);
         parent::__construct();
     }
 
-    public function initPublisher()
+    public function initPublisher($config)
     {
-        $this->mqHandler = new Publisher();
-        $this->mqHandler
-            ->setExchangeName('notice-exchange')
-            ->setExchangeType('direct')
-            ->setQueueName('notice-queue')
-            ->setQueueFlags([AMQP_DURABLE])
-            ->setRouteKey('notice-route')
-            ->init();
+        $this->mqHandler = new Publisher($config);
+        $this->mqHandler->init();
     }
 
 
     public function dealData($data): bool
     {
-        return $this->mqHandler->exchange->publish($data, 'notice-route', AMQP_NOPARAM);
+        return $this->mqHandler->exchange->publish($data, $this->mqHandler->config['routeKey'], AMQP_NOPARAM);
     }
 }

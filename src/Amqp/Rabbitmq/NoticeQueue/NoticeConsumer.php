@@ -5,57 +5,39 @@ namespace Justlzz\Solutions\Amqp\Rabbitmq\NoticeQueue;
 
 use Justlzz\Solutions\Amqp\Consumer;
 use AMQPEnvelope;
-use Justlzz\Solutions\Language\Php\Base\ToolFunction\Email;
+use Justlzz\Solutions\Config\ConfigInterface;
+use Justlzz\Solutions\Language\Php\Base\ToolFunction\Notice\NoticeInterface;
 
 class NoticeConsumer
 {
-    public function __construct()
+    public function __construct(ConfigInterface $config,NoticeInterface $notice)
     {
-        $a = new Consumer();
-        $a->setExchangeName('notice-exchange')
-            ->setExchangeType('direct')
-            ->setQueueName('notice-queue')
-            ->setQueueFlags([AMQP_DURABLE])
-            ->setRouteKey('notice-route')
-            ->init()
-            ->consume(function ($message) use ($a) {
+        $a = new Consumer($config);
+        $a->init()->consume(function ($message) use ($a, $notice) {
                 if ($message) {
-                    $this->dealData($message,$a);
+                    $this->dealData($message,$a,$notice);
                 }
             });
     }
 
-    public function dealData(AMQPEnvelope $message,Consumer $consumer)
+    public function dealData(AMQPEnvelope $message,Consumer $consumer, NoticeInterface $notice)
     {
         $body = $message->getBody();
-        if ($this->sendEmail($body)) {
+        if ($this->sendEmail($body, $notice)) {
             //为了防止接收端在处理消息时down掉，只有在消息处理完成后才发送ack消息
             $consumer->queue->ack($message->getDeliveryTag());
         }
     }
 
-    /**
-     * Notes:发送邮件
-     * User: Admin
-     * Date: 2021/4/1
-     * Time: 16:07
-     * @param $data
-     * @return bool
-     */
-    public function sendEmail($data)
+    public function sendEmail($data, NoticeInterface $notice)
     {
-
-        $email = new Email();
         $arrayData = json_decode($data,true);
         if (!isset($arrayData['to'])) return false;
-        $content = $arrayData['data'];
-        $res = $email->from('www@***.net', '云表单邮件通知')
-                    ->to($arrayData['to'])
-                    ->emailTitle('您有一封新的邮件')
-                    ->emailContent($content)
-                    ->send();
-        return true;
-
+        $res = $notice->to($arrayData['to'])
+                    ->emailTitle($arrayData['title'])
+                    ->emailContent($arrayData['content']);
+        var_dump($res);
+        return $res;
     }
 
 }
