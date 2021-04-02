@@ -8,9 +8,13 @@ class Config implements ConfigInterface
 {
     public $config;
 
-    public function __construct($config = [])
+    public function __construct($configName)
     {
-        $this->config = $config;
+        $configFile = __DIR__ . DIRECTORY_SEPARATOR . $configName . '.php';
+        if (is_file($configFile))
+        {
+            $this->config = include_once $configFile;
+        }
     }
 
 
@@ -45,6 +49,11 @@ class Config implements ConfigInterface
             $this->config[$item] = $value;
         }
         return true;
+    }
+
+    public function toArray()
+    {
+        return $this->config;
     }
 
 

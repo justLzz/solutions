@@ -1,16 +1,19 @@
 <?php
 require '/html/www/Solutions/vendor/autoload.php';
 use Justlzz\Solutions\Amqp\Consumer;
+use Justlzz\Solutions\Config\Config;
 
+$config = new Config('rabbitmq');
+$config->set('exchangeName','delay-exchange-test');
+$config->set('exchangeType','x-delayed-message');
+$config->set('exchangeArguments',['x-delayed-type' => 'direct']);
+$config->set('queueName','delay-queue-test');
+$config->set('queueFlags',[AMQP_DURABLE]);
+$config->set('routeKey','delay-route-test');
 
-$a = new Consumer();
-$a->setExchangeName('delay-exchange-test')
-    ->setExchangeType('x-delayed-message')
-    ->setExchangeArguments(['x-delayed-type' => 'direct'])
-    ->setQueueName('delay-queue-test')
-    ->setQueueFlags([AMQP_DURABLE])
-    ->setRouteKey('delay-route-test')
-    ->init()
+$a = new Consumer($config);
+
+$a->init()
     ->consume(function (AMQPEnvelope $message) use ($a) {
         if ($message) {
             $body = $message->getBody();
