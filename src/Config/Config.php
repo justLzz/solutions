@@ -11,7 +11,7 @@ class Config implements ConfigInterface
     /**
      * Config constructor.
      * @param $configName
-     * @param $configPath 配置文件路径
+     * @param $configPath
      */
     public function __construct($configName,$configPath = '')
     {
