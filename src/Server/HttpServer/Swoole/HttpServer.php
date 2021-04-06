@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Server\HttpServer;
+namespace Justlzz\Solutions\Server\HttpServer\Swoole;
 
 use Swoole\Http\Server;
 use Swoole\Http\Request;
@@ -13,7 +13,7 @@ use Justlzz\Solutions\Config\ConfigInterface;
  * Class SwooleHttpServer
  * @package Solutions\Server\HttpServer
  */
-abstract class SwooleHttpServer
+abstract class HttpServer
 {
     public $config;
     public function __construct(ConfigInterface $config)
