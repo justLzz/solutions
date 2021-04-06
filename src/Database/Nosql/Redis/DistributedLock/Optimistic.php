@@ -3,7 +3,7 @@
 
 namespace Justlzz\Solutions\Database\Nosql\Redis\DistributedLock;
 
-use Justlzz\Solutions\Database\Nosql\Redis\Redis;
+use Redis;
 
 /**
  * 利用redis watch命令实现，类似于乐观锁
@@ -12,10 +12,12 @@ use Justlzz\Solutions\Database\Nosql\Redis\Redis;
  */
 class Optimistic implements LockInterface
 {
-    public $redis = null;
-    public function __construct()
+
+    public $redis;
+
+    public function __construct(Redis $redis)
     {
-        if ($this->redis === null) $this->redis = Redis::getInstance();
+        $this->redis = $redis;
     }
 
     /**

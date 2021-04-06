@@ -1,23 +1,23 @@
 <?php
 
-
 namespace Justlzz\Solutions\Database\Nosql\Redis\DistributedLock;
 
-use Justlzz\Solutions\Database\Nosql\Redis\Redis;
+use Redis;
 
 /**
  * redis获取锁的方式类似于悲观锁
  * Class Simple
  * @package Solutions\Database\Nosql\Redis\DistributedLock
  */
-class Simple implements LockInterface
+class Pessimism implements LockInterface
 {
-    public $redis = null;
     public $lockId = [];
 
-    public function __construct()
+    public $redis;
+
+    public function __construct(Redis $redis)
     {
-        if ($this->redis === null) $this->redis = Redis::getInstance();
+        $this->redis = $redis;
     }
 
     public function lock(String $scene,Int $expire_time = 10,Int $retry_times = 3, Int $usleep = 100000)
