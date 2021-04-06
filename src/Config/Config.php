@@ -20,7 +20,6 @@ class Config implements ConfigInterface
         if (is_file($configFile)) $this->config = include_once $configFile;
     }
 
-
     public function set($key, $value)
     {
         $this->config[$key] = $value;

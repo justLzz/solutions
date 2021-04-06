@@ -6,6 +6,7 @@ namespace Justlzz\Solutions\Server\HttpServer;
 use Swoole\Http\Server;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
+use Justlzz\Solutions\Config\ConfigInterface;
 
 /**
  * swoole创建http服务
@@ -14,20 +15,16 @@ use Swoole\Http\Response;
  */
 abstract class SwooleHttpServer
 {
-    public function __construct()
+    public $config;
+    public function __construct(ConfigInterface $config)
     {
-        $http = new Server('127.0.0.1', 9501);
+        $this->config = $config->toArray();
+        $http = new Server($this->config['host'], $this->config['port']);
         $http->on('Request', function (Request $request, Response $response) {
-            $data = $request->getContent();
-            if ($this->dealData($data))
-            {
-                $response->end('ok');
-            } else {
-                $response->end('error');
-            }
+            return $this->dealCallBack($request, $response);
         });
         $http->start();
     }
 
-    abstract public function dealData($data):bool ;
+    abstract public function dealCallBack($request, $response);
 }
