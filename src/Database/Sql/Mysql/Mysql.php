@@ -2,20 +2,13 @@
 
 namespace Justlzz\Solutions\Database\Sql\Mysql;
 
+use Justlzz\Solutions\Config\Config;
 
 class Mysql
 {
     public $pdo = null;
 
-    public $config = [
-        'type' => 'mysql',
-        'hostname' => '172.17.0.1',
-        'port' => 3306,
-        'dbname' => 'test',
-        'username' => 'root',
-        'password' => '123456',
-        'charset' => 'utf8'
-    ];
+    public $config;
 
     protected $table;
 
@@ -24,8 +17,9 @@ class Mysql
 
     public $values = [];
 
-    public function __construct()
+    public function __construct(Config $config)
     {
+        $this->config = $config->toArray();
         if (is_null($this->pdo)) {
             $dsn = sprintf('%s:dbname=%s;host=%s;charset=%s',
                 $this->config['type'],
