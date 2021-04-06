@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Frame\Swoole\Chat\Server;
+namespace Justlzz\Solutions\Server\HttpServer\Swoole;
 
 use Justlzz\Solutions\Database\Sql\Mysql\Mysql;
 
