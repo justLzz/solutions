@@ -3,6 +3,8 @@
 
 namespace Justlzz\Solutions\Database\Contracts;
 
+use Justlzz\Solutions\Config\Config;
+
 /**
  * 数据库通用接口
  * Interface Common
@@ -10,5 +12,5 @@ namespace Justlzz\Solutions\Database\Contracts;
  */
 interface Common
 {
-    public static function getInstance();
+    public static function getInstance(Config $config);
 }

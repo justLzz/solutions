@@ -3,10 +3,16 @@
 require '/html/www/Solutions/vendor/autoload.php';
 
 use Justlzz\Solutions\Database\Nosql\Redis\DistributedLock\Optimistic;
+use Justlzz\Solutions\Config\Config;
+use Justlzz\Solutions\Database\Nosql\Redis\Redis;
+
+$config = new Config('redis');
+
+$redis = Redis::getInstance($config);
 
 $workerId = $argv[1]; //多进程传入的工作进程id
 $scene = 'secondKill';
-$optimisticLock = new Optimistic();
+$optimisticLock = new Optimistic($redis);
 
 //抢购开始之前新建库存
 //$optimisticLock->redis->set($scene,200);

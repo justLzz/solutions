@@ -2,12 +2,18 @@
 
 require '/html/www/Solutions/vendor/autoload.php';
 
-use Justlzz\Solutions\Database\Nosql\Redis\DistributedLock\Simple;
+use Justlzz\Solutions\Database\Nosql\Redis\DistributedLock\Pessimism;
+use Justlzz\Solutions\Config\Config;
+use Justlzz\Solutions\Database\Nosql\Redis\Redis;
+
+$config = new Config('redis');
+
+$redis = Redis::getInstance($config);
 
 $workerId = $argv[1]; //swoole多进程传入的工作进程id
 $scene = 'secondKill';
 
-$lockTool = new Simple();
+$lockTool = new Pessimism($redis);
 
 $lock = $lockTool->lock($scene);
 if ($lock)
@@ -22,4 +28,3 @@ if ($lock)
     echo $workerId  . '未获取到锁' . PHP_EOL;
 }
 
-//Swoole模拟多进程获取锁详见Test

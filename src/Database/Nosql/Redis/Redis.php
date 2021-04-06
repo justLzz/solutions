@@ -5,21 +5,18 @@
 namespace Justlzz\Solutions\Database\Nosql\Redis;
 
 use Justlzz\Solutions\Database\Contracts\Common as DatabaseCommon;
+use Justlzz\Solutions\Config\Config;
 
 class Redis implements  DatabaseCommon{
 
-    private static $config = [
-        'host' => '172.17.0.1',
-        'port' => 6379,
-        'select' => 0,
-        'auth' => '',
-    ];
+    private static $config;
 
     private static $redis = null;
 
-    private function __construct()
+    private function __construct(Config $config)
     {
         try {
+            self::$config = $config->toArray();
             $redis = new \Redis();
             $redis->connect(self::$config['host'],self::$config['port']);
             if (self::$config['auth']) $redis->auth(self::$config['port']);
@@ -32,11 +29,11 @@ class Redis implements  DatabaseCommon{
 
     private function __clone(){}
 
-    public static function getInstance()
+    public static function getInstance($config)
     {
         if (is_null(self::$redis))
         {
-            new self;
+            new self($config);
         }
         return self::$redis;
     }
