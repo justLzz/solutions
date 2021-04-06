@@ -31,7 +31,7 @@ class Mysql
                 $this->pdo->setAttribute(\PDO::ATTR_PERSISTENT, true); // 设置数据库连接为持久连接
                 $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); // 设置抛出错误
                 $this->pdo->setAttribute(\PDO::ATTR_ORACLE_NULLS, true); // 设置当字符串为空转换为 SQL 的 NULL
-                $this->pdo->setAttribute(\PDO::ATTR_AUTOCOMMIT, false);//关闭事务自动提交
+//                $this->pdo->setAttribute(\PDO::ATTR_AUTOCOMMIT, false);//关闭事务自动提交
                 $this->pdo->query('SET NAMES utf8'); // 设置数据库编码
             } catch (\Exception $exception) {
                 echo $exception->getMessage();

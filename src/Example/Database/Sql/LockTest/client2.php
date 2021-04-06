@@ -9,4 +9,5 @@ $config = new Config('mysql','/html/www/Solutions/src/Config');
 $mysql = new Mysql($config);
 
 //事务提交之前，这一行被锁住，其他脚本无法操作这一行
-$res = $mysql->table('test')->where('id','=',12)->update(['name'=>'4444222']);
+$res = $mysql->table('test')->where('id','=',12)->update(['name'=>'33333']);
+var_dump($res);
