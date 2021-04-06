@@ -5,7 +5,7 @@
 namespace Justlzz\Solutions\Database\Nosql\Redis;
 
 use Justlzz\Solutions\Database\Contracts\Common as DatabaseCommon;
-use Justlzz\Solutions\Config\Config;
+use Justlzz\Solutions\Config\ConfigInterface;
 
 class Redis implements  DatabaseCommon{
 
@@ -13,7 +13,7 @@ class Redis implements  DatabaseCommon{
 
     private static $redis = null;
 
-    private function __construct(Config $config)
+    private function __construct(ConfigInterface $config)
     {
         try {
             self::$config = $config->toArray();

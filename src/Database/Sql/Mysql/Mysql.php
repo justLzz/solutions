@@ -2,7 +2,7 @@
 
 namespace Justlzz\Solutions\Database\Sql\Mysql;
 
-use Justlzz\Solutions\Config\Config;
+use Justlzz\Solutions\Config\ConfigInterface;
 
 class Mysql
 {
@@ -17,7 +17,7 @@ class Mysql
 
     public $values = [];
 
-    public function __construct(Config $config)
+    public function __construct(ConfigInterface $config)
     {
         $this->config = $config->toArray();
         if (is_null($this->pdo)) {
