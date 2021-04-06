@@ -3,8 +3,6 @@
 
 namespace Justlzz\Solutions\Database\Sql\Mysql;
 
-use Justlzz\Solutions\Database\Sql\Mysql\Mysql;
-
 //数据库的锁
 class Lock extends Mysql
 {
