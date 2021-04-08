@@ -1,0 +1,26 @@
+<?php
+
+require '/html/www/Solutions/vendor/autoload.php';
+
+use Justlzz\Solutions\Example\Database\Nosql\Redis\DelayQueue\Task;
+use Justlzz\Solutions\Config\Config;
+use Justlzz\Solutions\Database\Nosql\Redis\Redis;
+
+$config = new Config('redis');
+
+$redis = Redis::getInstance($config);
+
+$task = new Task($redis, $config, 'order_test');
+
+while (true)
+{
+    if (!$task->run())
+    {
+        sleep(5);
+    } else {
+        $res = $task->run();
+        $res = json_decode($res, true);
+        //处理任务
+        echo '任务：' . $res['task_name'] . ' 处理时间：' . date('Y-m-d H:i:s') . PHP_EOL;
+    }
+}
