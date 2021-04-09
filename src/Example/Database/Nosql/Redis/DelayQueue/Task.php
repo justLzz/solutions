@@ -10,6 +10,7 @@ class Task extends AbTask
 {
     public function deal($value) : bool
     {
-       return $this->redis->zRem($this->key, $value);
+        if ($this->redis->zRem($this->key, $value)) return true;
+        return false;
     }
 }

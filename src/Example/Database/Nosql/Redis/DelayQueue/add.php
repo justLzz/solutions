@@ -12,6 +12,6 @@ $redis = Redis::getInstance($config);
 
 $task = new Task($redis, $config, 'order_test');
 
-$task->add('order1', time() + 30, ['id' => 11, 'sku_id' => 12]);
+$task->add('order1', time() + 2, ['id' => 11, 'sku_id' => 12]);
 
 echo '任务加入时间：' . date('Y-m-d H:i:s') . PHP_EOL;

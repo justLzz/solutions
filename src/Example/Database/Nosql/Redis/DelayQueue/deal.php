@@ -14,11 +14,10 @@ $task = new Task($redis, $config, 'order_test');
 
 while (true)
 {
-    if (!$task->run())
+    if (!$res = $task->run())
     {
-        sleep(5);
+        sleep(1);
     } else {
-        $res = $task->run();
         $res = json_decode($res, true);
         //处理任务
         echo '任务：' . $res['task_name'] . ' 处理时间：' . date('Y-m-d H:i:s') . PHP_EOL;
