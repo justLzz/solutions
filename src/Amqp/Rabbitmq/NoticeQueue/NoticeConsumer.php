@@ -41,6 +41,7 @@ class NoticeConsumer
     {
         $arrayData = json_decode($data,true);
         if (!isset($arrayData['to'])) return false;
+        $notice->clearAll();
         $res = $notice->to($arrayData['to'])
                     ->emailTitle($arrayData['title'])
                     ->emailContent($arrayData['content'])

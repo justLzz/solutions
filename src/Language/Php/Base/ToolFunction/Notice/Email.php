@@ -64,6 +64,12 @@ class Email implements NoticeInterface
         return $this;
     }
 
+    public function clearAll()
+    {
+        $this->email->clearAddresses();
+        $this->email->clearAllRecipients();
+    }
+
     public function send() : bool
     {
         try {
