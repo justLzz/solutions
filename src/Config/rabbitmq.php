@@ -14,5 +14,6 @@ return [
         'exchangeFlags' => [],
         'queueName' => 'test',
         'queueFlags' => [],
-        'routeKey' => 'test'
+        'routeKey' => 'test',
+        'consumer_compensate_log_path' => '/data/www/consumer_compensate.log'
 ];
