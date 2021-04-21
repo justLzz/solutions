@@ -15,5 +15,6 @@ return [
         'queueName' => 'test',
         'queueFlags' => [],
         'routeKey' => 'test',
+        //通知发送失败将消息记录日志，日志路径，或者记录到数据库，定时任务去处理
         'consumer_compensate_log_path' => '/data/www/consumer_compensate.log'
 ];

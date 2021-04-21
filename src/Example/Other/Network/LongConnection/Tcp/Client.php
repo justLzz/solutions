@@ -4,7 +4,17 @@
 namespace Justlzz\Solutions\Example\Other\Network\LongConnection\Tcp;
 
 
-class Client
-{
+use Justlzz\Solutions\Client\Tcp\SwooleTcpLongConnectClient;
 
+class Client extends SwooleTcpLongConnectClient
+{
+    public function getSendData()
+    {
+        return 'sendData' . PHP_EOL;
+    }
+
+    public function dealReceive($data)
+    {
+        echo $data;
+    }
 }
