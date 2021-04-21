@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Justlzz\Solutions\Server\HttpServer\Swoole;
+namespace Justlzz\Solutions\Network\WebSocket\Swoole;
 
 use Justlzz\Solutions\Database\Sql\Mysql\Mysql;
 
-class WebSocketServer
+class Server
 {
     public $server;
     public function __construct()

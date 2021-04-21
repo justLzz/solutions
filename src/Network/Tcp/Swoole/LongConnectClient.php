@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Justlzz\Solutions\Client\Tcp;
+namespace Justlzz\Solutions\Network\Tcp\Swoole;
 
 use Justlzz\Solutions\Config\ConfigInterface as ServerConnectConfig;
 use Swoole\Client;
 
-abstract class SwooleTcpLongConnectClient
+abstract class LongConnectClient
 {
     protected $client;
 

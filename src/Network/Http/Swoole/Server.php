@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Justlzz\Solutions\Server\HttpServer\Swoole;
+namespace Justlzz\Solutions\Network\Http\Swoole;
 
-use Swoole\Http\Server;
+use Swoole\Http\Server as SwooleHttpServer;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
 use Justlzz\Solutions\Config\ConfigInterface;
@@ -13,13 +13,13 @@ use Justlzz\Solutions\Config\ConfigInterface;
  * Class SwooleHttpServer
  * @package Solutions\Server\HttpServer
  */
-abstract class HttpServer
+abstract class Server
 {
     public $config;
     public function __construct(ConfigInterface $config)
     {
         $this->config = $config->toArray();
-        $http = new Server($this->config['host'], $this->config['port']);
+        $http = new SwooleHttpServer($this->config['host'], $this->config['port']);
         $http->on('Request', function (Request $request, Response $response) {
             return $this->dealCallBack($request, $response);
         });

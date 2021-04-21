@@ -1,7 +1,7 @@
 <?php
 require '/html/www/Solutions/vendor/autoload.php';
 
-use Justlzz\Solutions\Example\Other\Network\LongConnection\Tcp\Server;
+use Justlzz\Solutions\Example\Network\Tcp\Swoole\Server;
 use Justlzz\Solutions\Config\Config;
 
 $config = new Config('swoole_tcp');

@@ -1,10 +1,9 @@
 <?php
 
 
-namespace Justlzz\Solutions\Example\Other\Network\LongConnection\Tcp;
+namespace Justlzz\Solutions\Example\Network\Tcp\Swoole;
 
-
-use Justlzz\Solutions\Server\TcpServer\Swoole\TcpServer;
+use Justlzz\Solutions\Network\Tcp\Swoole\Server as TcpServer;
 
 class Server extends TcpServer
 {

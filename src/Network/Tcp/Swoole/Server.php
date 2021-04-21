@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Justlzz\Solutions\Server\TcpServer\Swoole;
+namespace Justlzz\Solutions\Network\Tcp\Swoole;
 
 use Justlzz\Solutions\Config\ConfigInterface;
-use Swoole\Server;
+use Swoole\Server as SwooleServer;
 
-abstract class TcpServer
+abstract class Server
 {
 
     protected $serverHandler;
@@ -15,7 +15,7 @@ abstract class TcpServer
     public function __construct(ConfigInterface $config)
     {
         $this->config = $config->toArray();
-        $this->serverHandler = new Server($this->config['host'],
+        $this->serverHandler = new SwooleServer($this->config['host'],
                                             $this->config['port'],
                                             $this->config['mode'],
                                             $this->config['sockType']);

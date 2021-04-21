@@ -3,9 +3,8 @@
 
 namespace Justlzz\Solutions\Amqp\Rabbitmq\NoticeQueue;
 
-
 use Justlzz\Solutions\Config\ConfigInterface;
-use Justlzz\Solutions\Server\HttpServer\Swoole\HttpServer;
+use Justlzz\Solutions\Network\Http\Swoole\Server as HttpServer;
 use Justlzz\Solutions\Amqp\Publisher;
 
 class NoticePublisherHttpServer extends HttpServer
