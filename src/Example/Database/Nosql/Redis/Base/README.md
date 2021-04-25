@@ -21,3 +21,6 @@ allkeys-random：从数据集中任意选择数据淘汰。
 no-enviction：当内存不足以容纳新写入数据时，新写入操作会报错。
 
 一般情况下，推荐使用volatile-lru策略，对于配置信息等重要数据，不应该设置过期时间，这样Redis就永远不会淘汰这些重要数据。对于一般数据可以添加一个缓存时间，当数据失效则请求会从DB中获取并重新存入Redis中。
+
+## redis multi和redis pipeline
+区别在于multi实在服务端缓冲命令，pipeline是在客户端缓冲不能保证原子性
