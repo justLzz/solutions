@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Justlzz\Solutions\Algorithm\Search;
+namespace Justlzz\Solutions\Algorithm\Php\Search;
 
 
-class PhpSearch
+class Search
 {
     //二分查找
     public function binarySearch($arr,$value)

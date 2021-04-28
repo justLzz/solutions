@@ -1,8 +1,8 @@
 <?php
 
-namespace Justlzz\Solutions\Algorithm\Sort;
+namespace Justlzz\Solutions\Algorithm\Php\Sort;
 
-class PhpSort
+class Sort
 {
     //冒泡排序
     public function bubbleSort($arr)
