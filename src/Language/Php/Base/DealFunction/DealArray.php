@@ -2,6 +2,8 @@
 
 namespace Justlzz\Solutions\Language\Php\Base\DealFunction;
 
+use phpDocumentor\Reflection\Types\Self_;
+
 /**
  * 常用处理数组方法
  * Class DealArray
@@ -9,10 +11,10 @@ namespace Justlzz\Solutions\Language\Php\Base\DealFunction;
  */
 class DealArray
 {
-    public $res = [];
+    static $i = 0;
 
     //递归处理无限极分类
-    public function recursionInfinite(Array $array,Int $pid=0,Int $level=0)
+    public static function recursionInfinite(Array $array,Int $pid=0)
     {
         /**
          * 知识点 关于static
@@ -23,22 +25,21 @@ class DealArray
          * 4，static 类方法，类的静态方法只能访问静态成员变量，而不能访问非静态成员变量（如果有，会报错 ）
          * 5，Trait 的静态变量，trait 的静态变量被不同的类使用时 是互不影响的
          */
-        static $list = [];
+        $list = [];
         foreach ($array as $item=>$value)
         {
             if ($value['pid'] == $pid)
             {
-                $value['level'] = $level;
+                $value['children'] = self::recursionInfinite($array, $value['id']);
                 $list[] = $value;
-                unset($value[$item]);
-                $this->recursionInfinite($array, $value['id'], $level+1);
             }
         }
+
         return $list;
     }
 
     //引用处理无限极分类
-    public function quoteInfinite(Array $array)
+    public static function quoteInfinite(Array $array)
     {
         $list = [];
         foreach ($array as $k=>$v) {
@@ -47,7 +48,7 @@ class DealArray
         $tree = [];
         foreach ($list as $k => $v) {
             if (isset($list[$v['pid']])) {
-                $list[$v['pid']]['son'][] = &$list[$k];
+                $list[$v['pid']]['children'][] = &$list[$k];
             } else {
                 $tree[] = &$list[$k];
             }
@@ -56,17 +57,3 @@ class DealArray
         return $tree;
     }
 }
-
-$a = [ [ 'id'=>1, 'pid'=>0 ],
-        [ 'id'=>2, 'pid'=>0 ],
-        [ 'id'=>3, 'pid'=>0 ],
-        [ 'id'=>4, 'pid'=>1 ],
-        [ 'id'=>5, 'pid'=>2 ],
-        [ 'id'=>6, 'pid'=>2 ],
-        [ 'id'=>7, 'pid'=>3 ],
-        [ 'id'=>8, 'pid'=>3 ],
-        [ 'id'=>9, 'pid'=>3 ] ];
-
-$b = new DealArray();
-//var_dump($b->recursionInfinite($a));
-var_dump($b->quoteInfinite($a));

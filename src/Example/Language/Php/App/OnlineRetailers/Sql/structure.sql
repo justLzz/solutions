@@ -1,7 +1,6 @@
 #电商系统中常用的表结构
 #商品表，流水表，订单表，购物车表，用户表，sku表
 
-
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -10,7 +9,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods`  (
-                          `goods_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '商品id',
+                          `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '商品id',
                           `goods_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '商品名称',
                           `goods_state` tinyint(4) NOT NULL DEFAULT 1 COMMENT '商品状态（1.正常0下架）',
                           `category_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '商品分类id,逗号隔开',
@@ -22,7 +21,7 @@ CREATE TABLE `goods`  (
                           `sale_num` int(11) NOT NULL DEFAULT 0 COMMENT '销量',
                           `sku_id` int(11) NOT NULL DEFAULT 0 COMMENT 'sku_id',
                           `sort` int(11) NOT NULL DEFAULT 0 COMMENT '排序',
-                          PRIMARY KEY (`goods_id`) USING BTREE,
+                          PRIMARY KEY (`id`) USING BTREE,
                           INDEX `IDX_ns_goods_category_id`(`category_id`) USING BTREE,
                           INDEX `IDX_ns_goods_is_delete`(`is_delete`) USING BTREE,
                           INDEX `IDX_ns_goods_sku_id`(`sku_id`) USING BTREE
@@ -38,11 +37,11 @@ INSERT INTO `goods` VALUES (1, '海蓝之家男装T恤', 1, '52', 50.00, 100, 0,
 -- ----------------------------
 DROP TABLE IF EXISTS `goods_cart`;
 CREATE TABLE `goods_cart`  (
-                               `cart_id` int(11) NOT NULL AUTO_INCREMENT,
+                               `id` int(11) NOT NULL AUTO_INCREMENT,
                                `member_id` int(11) NOT NULL DEFAULT 0 COMMENT '会员id',
                                `sku_id` int(11) NOT NULL DEFAULT 0 COMMENT 'sku_id',
                                `num` int(11) NOT NULL DEFAULT 0 COMMENT '数量',
-                               PRIMARY KEY (`cart_id`) USING BTREE,
+                               PRIMARY KEY (`id`) USING BTREE,
                                INDEX `IDX_ns_goods_cart_member_id`(`member_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = ' 购物车' ROW_FORMAT = Dynamic;
 
@@ -51,13 +50,13 @@ CREATE TABLE `goods_cart`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `goods_category`;
 CREATE TABLE `goods_category`  (
-                                   `category_id` int(11) NOT NULL AUTO_INCREMENT,
+                                   `id` int(11) NOT NULL AUTO_INCREMENT,
                                    `category_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '分类名称',
                                    `pid` int(11) NOT NULL DEFAULT 0 COMMENT '分类上级',
                                    `level` int(11) NOT NULL DEFAULT 0 COMMENT '层级',
                                    `is_show` int(11) NOT NULL DEFAULT 0 COMMENT '是否显示（0显示  -1不显示）',
                                    `sort` int(11) NOT NULL DEFAULT 0 COMMENT '排序',
-                                   PRIMARY KEY (`category_id`) USING BTREE,
+                                   PRIMARY KEY (`id`) USING BTREE,
                                    INDEX `pid_level`(`pid`, `level`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = ' 商品分类' ROW_FORMAT = Dynamic;
 
@@ -103,7 +102,7 @@ INSERT INTO `goods_category` VALUES (58, '奶油', 40, 3, 0, 0);
 -- ----------------------------
 DROP TABLE IF EXISTS `goods_sku`;
 CREATE TABLE `goods_sku`  (
-                              `sku_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '商品sku_id',
+                              `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '商品sku_id',
                               `goods_id` int(11) NOT NULL DEFAULT 0 COMMENT '商品id',
                               `sku_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '商品sku名称',
                               `sku_no` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '商品sku编码',
@@ -116,7 +115,7 @@ CREATE TABLE `goods_sku`  (
                               `create_time` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
                               `modify_time` int(11) NOT NULL DEFAULT 0 COMMENT '修改时间',
                               `is_default` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否默认',
-                              PRIMARY KEY (`sku_id`) USING BTREE,
+                              PRIMARY KEY (`id`) USING BTREE,
                               INDEX `IDX_ns_goods_is_delete`(`is_delete`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '商品表' ROW_FORMAT = Dynamic;
 
@@ -133,9 +132,9 @@ INSERT INTO `goods_sku` VALUES (4, 1, '粉色', '', 50.00, 25, 0, '', 1, 0, 0, 0
 -- ----------------------------
 DROP TABLE IF EXISTS `member`;
 CREATE TABLE `member`  (
-                           `member_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+                           `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
                            `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '用户名',
-                           PRIMARY KEY (`member_id`) USING BTREE,
+                           PRIMARY KEY (`id`) USING BTREE,
                            INDEX `IDX_sys_user_user_name`(`username`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 201 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统用户表' ROW_FORMAT = Dynamic;
 
@@ -348,7 +347,7 @@ INSERT INTO `member` VALUES (10, '9号客户');
 -- ----------------------------
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order`  (
-                          `order_id` int(11) NOT NULL AUTO_INCREMENT,
+                          `id` int(11) NOT NULL AUTO_INCREMENT,
                           `order_no` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '订单编号',
                           `order_name` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '订单内容',
                           `out_trade_no` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '支付流水号',
@@ -361,7 +360,7 @@ CREATE TABLE `order`  (
                           `goods_num` int(11) NOT NULL DEFAULT 0 COMMENT '商品件数',
                           `member_id` int(11) NOT NULL DEFAULT 0 COMMENT '购买人uid',
                           `sort` int(11) NOT NULL DEFAULT 0 COMMENT '排序',
-                          PRIMARY KEY (`order_id`) USING BTREE,
+                          PRIMARY KEY (`id`) USING BTREE,
                           INDEX `IDX_ns_order_create_time`(`create_time`) USING BTREE,
                           INDEX `IDX_ns_order_member_id`(`member_id`) USING BTREE,
                           INDEX `IDX_ns_order_order_status`(`order_status`) USING BTREE,
