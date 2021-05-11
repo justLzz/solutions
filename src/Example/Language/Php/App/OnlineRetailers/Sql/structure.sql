@@ -390,4 +390,23 @@ CREATE TABLE `pay`  (
                         UNIQUE INDEX `UK_ns_pay_out_trade_no`(`out_trade_no`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '支付记录' ROW_FORMAT = Dynamic;
 
+-- ----------------------------
+-- Table structure for order_goods
+-- ----------------------------
+DROP TABLE IF EXISTS `order_goods`;
+CREATE TABLE `order_goods`  (
+                                `order_goods_id` int(11) NOT NULL AUTO_INCREMENT,
+                                `order_id` int(11) NOT NULL DEFAULT 0 COMMENT '订单id',
+                                `order_no` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '订单编号',
+                                `member_id` int(11) NOT NULL DEFAULT 0 COMMENT '购买会员id',
+                                `goods_id` int(11) NOT NULL DEFAULT 0 COMMENT '商品id',
+                                `sku_id` int(11) NOT NULL DEFAULT 0 COMMENT '商品skuid',
+                                `num` int(11) NOT NULL DEFAULT 0 COMMENT '购买数量',
+                                `goods_money` decimal(10, 2) NOT NULL DEFAULT 0.00 COMMENT '商品总价',
+                                PRIMARY KEY (`order_goods_id`) USING BTREE,
+                                INDEX `IDX_ns_order_goods_goods_id`(`goods_id`) USING BTREE,
+                                INDEX `IDX_ns_order_goods_member_id`(`member_id`) USING BTREE,
+                                INDEX `IDX_ns_order_goods_sku_id`(`sku_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单商品表' ROW_FORMAT = Dynamic;
+
 SET FOREIGN_KEY_CHECKS = 1;
