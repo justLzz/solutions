@@ -4,7 +4,7 @@
 composer require justlzz/solutions
 ```
 ***
-##（1）算法
+## （1）算法
 ### 1、Php算法
 - #### 查找算法
 - #### 排序算法

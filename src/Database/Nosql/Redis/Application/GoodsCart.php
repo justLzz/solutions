@@ -129,12 +129,20 @@ class GoodsCart
 
     /**
      * Notes:获取购物车商品列表
+     * @param array $ids
+     * @return mixed
      * @throws \Exception
      */
-    public function getGoodsList()
+    public function getGoodsList(Array $ids = [])
     {
         if (!$this->userId) throw new \Exception('please set userId');
-        $goodsList = $this->decodeArrayJson($this->redis->hGetAll($this->getKey()));
+        if (empty($ids))
+        {
+            $goodsList = $this->decodeArrayJson($this->redis->hGetAll($this->getKey()));
+        } else {
+            $goodsList = $this->decodeArrayJson($this->redis->hMGet($this->getKey(),$ids));
+        }
+
         return $this->sortGoodsList($goodsList);
     }
 
