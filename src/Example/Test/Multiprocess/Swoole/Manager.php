@@ -5,7 +5,7 @@ use Swoole\Process;
 
 //开一个swoole多进程管理器
 $process = new Process(function (Process $process) {
-    $execPath = '/html/www/Solutions/src/Example/Database/Nosql/Redis/CurrentLimiting/sliding_window.php'; //脚本路径
+    $execPath = '/html/www/Solutions/src/Example/Database/Nosql/Redis/CurrentLimiting/string_incr_limit.php'; //脚本路径
     $logPath = './error.log'; //日志路径
     $processName = 'multiProcessTest'; //进程名称
     $workerNum = 1; //进程数量
