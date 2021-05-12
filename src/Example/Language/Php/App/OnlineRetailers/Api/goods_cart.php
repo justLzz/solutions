@@ -36,8 +36,9 @@ $cart = new GoodsCart($redis);
 //        echo $exception->getMessage();
 //    }
 //}
-//
 //insertCart($cart, $uid, $goodsId, $goodsNum, $goodsInfo);
+
+
 
 ////更新购物车商品信息
 //function updateCart($cart, $uid, $goodsId, $goodsNum = null, $goodsInfo = null)
@@ -55,8 +56,10 @@ $cart = new GoodsCart($redis);
 //}
 //updateCart($cart, $uid, $goodsId, $goodsNum + 1);
 
+
+
 ////获取购物车列表
-//function getGoodsList($cart, $uid, $ids = [])
+//function getCartGoodsList($cart, $uid, $ids = [])
 //{
 //    $cart->setUserId($uid);
 //    try {
@@ -68,15 +71,17 @@ $cart = new GoodsCart($redis);
 //}
 //var_dump(getGoodsList($cart, $uid, [1,2]));
 
-////清空购物车
-//function emptyCart($cart, $uid)
+
+
+////删除购物车商品
+//function delCartGoods($cart, $uid, $ids = [])
 //{
 //    $cart->setUserId($uid);
 //    try {
-//        return $cart->emptyCart();
+//        return $cart->delGoods($ids);
 //    } catch (Exception $exception)
 //    {
 //        echo $exception->getMessage();
 //    }
 //}
-//emptyCart($cart, $uid);
+//delCartGoods($cart, $uid);

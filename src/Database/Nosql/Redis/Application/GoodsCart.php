@@ -172,12 +172,16 @@ class GoodsCart
     }
 
     /**
-     * Notes:清空购物车
-     * @return int
+     * Notes:删除购物车商品
+     * @param array $ids
+     * @return bool|int
+     * @throws \Exception
      */
-    public function emptyCart()
+    public function delGoods($ids = [])
     {
-        return $this->redis->del($this->getKey());
+        if (!$this->userId) throw new \Exception('please set userId');
+        if (empty($ids)) return $this->redis->del($this->getKey());
+        return $this->redis->hDel($this->getKey(), ...$ids);
     }
 
 
