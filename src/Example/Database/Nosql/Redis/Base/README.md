@@ -22,5 +22,26 @@ no-enviction：当内存不足以容纳新写入数据时，新写入操作会�
 
 一般情况下，推荐使用volatile-lru策略，对于配置信息等重要数据，不应该设置过期时间，这样Redis就永远不会淘汰这些重要数据。对于一般数据可以添加一个缓存时间，当数据失效则请求会从DB中获取并重新存入Redis中。
 
+## redis pipeline
+将多个命令打包为一次网络数据发送
+
 ## redis multi和redis pipeline
 区别在于multi实在服务端缓冲命令，pipeline是在客户端缓冲不能保证原子性
+
+## 发布订阅
+publish subscribe
+
+## bitmap 位图
+```$xslt
+setbit key offset value 设置位图
+getbit key offset 获取位图
+bitcount key [start end] 获取指定范围位值为1的个数
+bitop op[and not or xor] destkey key[...key] 求交集（and）并集(or)非（not）异或(xor)
+bitpos key targetBit [start end] 计算位图指定范围（单位为字节，如果不指定获取全部）第一个偏移量的值等于targetBit的位置
+```
+- 应用
+活跃用户统计
+#### 扩展
+计算机存储容量的大小一般以（字节）为单位1GB=1024MB，1MB=1024KB，1KB=1024B，二个B（字节byte）存储一个汉字，一个B存储一个英文字母，一个256MB的U盘可以存储256*1024*1024/2个汉字。一个字节包括8个二进制位数。
+
+
