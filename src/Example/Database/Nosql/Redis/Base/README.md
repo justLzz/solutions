@@ -43,5 +43,10 @@ bitpos key targetBit [start end] 计算位图指定范围（单位为字节，�
 活跃用户统计
 #### 扩展
 计算机存储容量的大小一般以（字节）为单位1GB=1024MB，1MB=1024KB，1KB=1024B，二个B（字节byte）存储一个汉字，一个B存储一个英文字母，一个256MB的U盘可以存储256*1024*1024/2个汉字。一个字节包括8个二进制位数。
-
-
+### HyperLogLog
+```$xslt
+pfadd key element [element...] 向hyperloglog添加元素
+pfcount key [key...] 计算hyperloglog独立总数
+pfmerge destkey sourceKey
+```
+- 独立用户统计
