@@ -50,3 +50,14 @@ pfcount key [key...] 计算hyperloglog独立总数
 pfmerge destkey sourceKey
 ```
 - 独立用户统计
+
+## GEO
+存储经纬度，计算距离信息
+![](.README_images/ea1c0f9a.png)
+```$xslt
+geoadd key longitude latitude member [...longitude latitude member]// 例如 geo add city 116.28 39.55 beijing
+geopos key member [...member]
+geodist key member1 member2 unit //获取两个位置之间的距离
+georadius key longitude latitude 
+```
+
