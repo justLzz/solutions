@@ -64,5 +64,5 @@ composer require justlzz/solutions
 - #### 常用命令
 - #### 常用工具
 
-
-
+---
+感谢[jetbrains](https://www.jetbrains.com)对本项目的支持，软件开发人员和团队的必备工具我们热衷于构建我们的软件，并将为您带来同样愉悦的构建体验。
