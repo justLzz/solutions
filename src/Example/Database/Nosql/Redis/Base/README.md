@@ -60,4 +60,16 @@ geopos key member [...member]
 geodist key member1 member2 unit //获取两个位置之间的距离
 georadius key longitude latitude 
 ```
-
+## 主从复制
+```$xslt
+1,使用命令
+slaveof host port 
+slaveof no one //取消
+2，修改配置
+slaveof ip port
+slave-read-only yes
+```
+![](.README_images/29b25dc1.png)
+![](.README_images/16b9b9f9.png)
+![](.README_images/26fce535.png)
+![](.README_images/8af16bce.png)
