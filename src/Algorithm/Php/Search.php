@@ -47,4 +47,33 @@ class Search
 
     }
 
+    /**
+     * 随机取一算法，源于一道找猴子大王的算法题
+     * 一群猴子排成一圈，按1，2，…，n依次编号。然后从第1只开始数，
+     * 数到第m只,把它踢出圈，从它后面再开始数，再数到第m只，在把它踢出去…，
+     * 如此不停的进行下去，直到最后只剩下一只猴子为止，那只猴子就叫做大王。
+     * @param $m
+     * @param $n
+     * @return int
+     */
+    public function takeOneAtRandom($m, $n)
+    {
+        //整体思路：一群猴子排成一队，如果符合条件就剔除，否则排在对尾继续排队
+        $arr = range(1, $n); //排成一队
+        $i = 0; //索引
+        while (count($arr) > 1)
+        {
+            if (($i+1)%$m == 0)
+            {
+                unset($arr[$i]);
+            } else {
+                array_push($arr,$arr[$i]);
+                unset($arr[$i]);
+            }
+            $i++;
+        }
+        return current($arr);
+    }
+
 }
+
