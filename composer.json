@@ -12,7 +12,10 @@
     "minimum-stability": "stable",
     "require": {
         "phpmailer/phpmailer": "^6.4",
-        "elasticsearch/elasticsearch": "^7.12"
+        "elasticsearch/elasticsearch": "^7.12",
+        "swoole/ide-helper": "@dev",
+        "grpc/grpc": "^1.39",
+        "google/protobuf": "^3.19"
     },
     "autoload":{
         "psr-4":{
