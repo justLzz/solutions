@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package grpc;
+
+option go_package="Justlzz/Solutions/Network/Rpc/Go";
+option php_namespace="Justlzz\\Solutions\\Network\\Rpc\\Php";
+
+service User {
+
+}
+// 枚举类型
+enum EnumUserSex {
+    SEX_INIT = 0;
+    SEX_MALE = 1;
+    SEX_FEMALE = 2;
+}
+
+// 用户实体模型
+message UserEntity {
+    string name = 1;
+    int32 age = 2;
+}
+
+// User 服务的各个接口的请求/响应结构
+message UserIndexRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+}
+
+message UserIndexResponse {
+    int32 err = 1;
+    string msg = 2;
+    // 返回一个 UserEntity 对象的列表数据
+    repeated UserEntity data = 3;
+}
+
+message UserViewRequest {
+    int32 uid = 1;
+}
+
+message User
