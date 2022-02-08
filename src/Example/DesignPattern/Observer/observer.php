@@ -1,6 +1,6 @@
 <?php
 
-require '/html/www/Solutions/vendor/autoload.php';
+require __DIR__ . "/../../../../vendor/autoload.php";
 
 use Justlzz\Solutions\DesignPattern\Observer\LoginNotice;
 use Justlzz\Solutions\DesignPattern\Observer\Sms;

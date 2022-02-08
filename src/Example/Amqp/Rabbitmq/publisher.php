@@ -1,5 +1,5 @@
 <?php
-require '/html/www/Solutions/vendor/autoload.php';
+require __DIR__ . "/../../../../vendor/autoload.php";
 
 use Justlzz\Solutions\Config\Config;
 use Justlzz\Solutions\Amqp\Rabbitmq\AsyncConfirm\Publisher;

@@ -1,5 +1,5 @@
 <?php
-require '/html/www/Solutions/vendor/autoload.php';
+require __DIR__ . "/../../../../../../../vendor/autoload.php";
 use Justlzz\Solutions\Language\Php\Frame\Laravel\Middleware\VerifyCSRFToken;
 use Justlzz\Solutions\Language\Php\Frame\Laravel\Middleware\SetCookie;
 use Justlzz\Solutions\Language\Php\Frame\Laravel\Middleware\VerifyAuth;

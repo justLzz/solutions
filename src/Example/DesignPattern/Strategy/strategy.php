@@ -1,6 +1,6 @@
 <?php
 
-require '/html/www/Solutions/vendor/autoload.php';
+require __DIR__ . "/../../../../vendor/autoload.php";
 
 use Justlzz\Solutions\DesignPattern\Strategy\Women;
 use Justlzz\Solutions\DesignPattern\Strategy\Man;
