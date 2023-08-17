@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/../../../../../../vendor/autoload.php";
+require __DIR__ . "/../../../../../vendor/autoload.php";
 
 use Justlzz\Solutions\Config\Config;
 use Justlzz\Solutions\Language\Php\Base\ApiInteraction\ApiClient;

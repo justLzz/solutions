@@ -1,6 +1,6 @@
 <?php
 
-namespace Justlzz\Solutions\Language\Php\Base\DealFunction;
+namespace Justlzz\Solutions\Php\Base\DealFunction;
 
 /**
  * php处理文件/文件夹

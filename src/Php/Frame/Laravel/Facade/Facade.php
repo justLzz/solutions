@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Frame\Laravel\Facade;
+namespace Justlzz\Solutions\Php\Frame\Laravel\Facade;
 
-use Justlzz\Solutions\Language\Php\Frame\Laravel\Ioc\Ioc;
+use Justlzz\Solutions\Php\Frame\Laravel\Ioc\Ioc;
 
 abstract class Facade
 {

@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . "/../../../../../vendor/autoload.php";
 
-use Justlzz\Solutions\Language\Php\Base\InteractiveFunction\CurlPost;
+use Justlzz\Solutions\Php\Base\InteractiveFunction\Curl;
 
 //要发送的邮件的内容
 $post_data = array(
@@ -23,10 +23,6 @@ $email = "1072084962@qq.com";
 //发送服务的地址
 $notice_url = 'http://127.0.0.1:9501';
 
-$post = new CurlPost();
-$res = $post->setUrl($notice_url)
-            ->setData(json_encode(['to'=>$email,'content'=>$content, 'title'=>$title]))
-            ->send()
-            ->getResponse();
+$res = Curl::json(json_encode(['to'=>$email,'content'=>$content, 'title'=>$title]), $notice_url);
 var_dump($res);
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Frame\Laravel\Facade;
+namespace Justlzz\Solutions\Php\Frame\Laravel\Facade;
 
 
 class UserFacade extends Facade

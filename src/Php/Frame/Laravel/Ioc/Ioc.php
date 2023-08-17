@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Frame\Laravel\Ioc;
+namespace Justlzz\Solutions\Php\Frame\Laravel\Ioc;
 
 
 class Ioc

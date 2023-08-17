@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Base\SystemFunction;
+namespace Justlzz\Solutions\Php\Base\SystemFunction;
 
 /**
  * php实现守护进程
