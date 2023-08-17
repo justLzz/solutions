@@ -6,7 +6,7 @@ namespace Justlzz\Solutions\Amqp\Rabbitmq\NoticeQueue;
 use Justlzz\Solutions\Amqp\Consumer;
 use AMQPEnvelope;
 use Justlzz\Solutions\Config\ConfigInterface;
-use Justlzz\Solutions\Language\Php\Base\ToolFunction\Notice\NoticeInterface;
+use Justlzz\Solutions\Php\Base\ToolFunction\Notice\NoticeInterface;
 
 class NoticeConsumer
 {

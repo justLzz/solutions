@@ -5,7 +5,7 @@ namespace Justlzz\Solutions\Php\Base\DealFunction;
 /**
  * php处理文件/文件夹
  * Class DealFile
- * @package Solutions\Language\Php\Base\CommonFunction
+ * @package Solutions\Php\Base\CommonFunction
  */
 class DealFile
 {

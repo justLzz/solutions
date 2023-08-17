@@ -7,7 +7,7 @@ use phpDocumentor\Reflection\Types\Self_;
 /**
  * 常用处理数组方法
  * Class DealArray
- * @package Solutions\Language\Php\Base\CommonFunction
+ * @package Solutions\Php\Base\CommonFunction
  */
 class DealArray
 {

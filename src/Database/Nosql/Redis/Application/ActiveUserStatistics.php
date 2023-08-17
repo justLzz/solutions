@@ -3,7 +3,7 @@
 
 namespace Justlzz\Solutions\Database\Nosql\Redis\Application;
 
-use Justlzz\Solutions\Language\Php\Base\DealFunction\DealTime;
+use Justlzz\Solutions\Php\Base\DealFunction\DealTime;
 /**
  * 基于redis bitmap实现活用用户统计
  * Class ActiveUserStatistics

@@ -1,8 +1,8 @@
 <?php
 require __DIR__ . "/../../../../../vendor/autoload.php";
-use Justlzz\Solutions\Language\Php\Base\MagicMethods\__CallMethod;
-use Justlzz\Solutions\Language\Php\Base\MagicMethods\__GetMethod;
-use Justlzz\Solutions\Language\Php\Base\MagicMethods\__SetMethod;
+use Justlzz\Solutions\Php\Base\MagicMethods\__CallMethod;
+use Justlzz\Solutions\Php\Base\MagicMethods\__GetMethod;
+use Justlzz\Solutions\Php\Base\MagicMethods\__SetMethod;
 
 //__call
 $query = new __CallMethod();
