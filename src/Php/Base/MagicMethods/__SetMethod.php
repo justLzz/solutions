@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Base\MagicMethods;
+namespace Justlzz\Solutions\Php\Base\MagicMethods;
 
 
 class __SetMethod

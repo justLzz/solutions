@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Base\ApiInteraction;
+namespace Justlzz\Solutions\Php\Base\ApiInteraction;
 
 
 interface ServiceInterface

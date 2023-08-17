@@ -17,11 +17,11 @@ class Strategy
 
     public function fColor()
     {
-        $this->strategy->favoriteColor();
+        return $this->strategy->favoriteColor();
     }
 
     public function fClass()
     {
-        $this->strategy->favoriteClass();
+        return $this->strategy->favoriteClass();
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Base\ToolFunction\Notice;
+namespace Justlzz\Solutions\Php\Base\ToolFunction\Notice;
 
 
 Interface NoticeInterface

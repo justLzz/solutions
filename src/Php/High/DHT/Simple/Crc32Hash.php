@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\High\DHT\Simple;
+namespace Justlzz\Solutions\Php\High\DHT\Simple;
 
 
 class Crc32Hash implements HashAlgorithm

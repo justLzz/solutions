@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Base\DealFunction;
+namespace Justlzz\Solutions\Php\Base\DealFunction;
 
 
 class DealTime

@@ -1,6 +1,6 @@
 <?php
 //商品分类列表
-require __DIR__ . "/../../../../../../../vendor/autoload.php";
+require __DIR__ . "/../../../../../../vendor/autoload.php";
 
 use Justlzz\Solutions\Database\Sql\Mysql\Mysql;
 use Justlzz\Solutions\Config\Config;

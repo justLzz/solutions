@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Frame\Laravel\Middleware;
+namespace Justlzz\Solutions\Php\Frame\Laravel\Middleware;
 
 
 class VerifyCSRFToken implements MiddlewareInterface

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Language\Php\Base\FilterFunction\Dfa;
+namespace Justlzz\Solutions\Php\Base\FilterFunction\Dfa;
 
 /**
  * 敏感词过滤

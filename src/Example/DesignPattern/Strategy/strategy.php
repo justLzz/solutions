@@ -10,4 +10,8 @@ $strategy = new Strategy();
 
 $manFColor = $strategy->getItem(Man::class)->fColor();
 
+echo $manFColor;
+
 $womenFColor = $strategy->getItem(Women::class)->fColor();
+
+echo $womenFColor;
