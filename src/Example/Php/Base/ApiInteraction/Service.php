@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Justlzz\Solutions\Php\Base\ApiInteraction;
+namespace Justlzz\Solutions\Example\Php\Base\ApiInteraction;
 
 use Justlzz\Solutions\Config\Config;
 use Justlzz\Solutions\Php\Base\ApiInteraction\ApiService;
