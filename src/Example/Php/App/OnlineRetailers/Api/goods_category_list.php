@@ -4,7 +4,7 @@ require __DIR__ . "/../../../../../../vendor/autoload.php";
 
 use Justlzz\Solutions\Database\Sql\Mysql\Mysql;
 use Justlzz\Solutions\Config\Config;
-use Justlzz\Solutions\Language\Php\Base\DealFunction\DealArray;
+use Justlzz\Solutions\Php\Base\DealFunction\DealArray;
 
 $config = new Config('mysql','/html/www/Solutions/src/Config');
 

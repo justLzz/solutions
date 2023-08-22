@@ -15,7 +15,8 @@
         "elasticsearch/elasticsearch": "^7.12",
         "swoole/ide-helper": "@dev",
         "grpc/grpc": "^1.39",
-        "google/protobuf": "^3.19"
+        "google/protobuf": "^3.19",
+        "godruoyi/php-snowflake": "^2.2"
     },
     "autoload":{
         "psr-4":{

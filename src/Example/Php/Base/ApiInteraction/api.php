@@ -2,8 +2,8 @@
 require __DIR__ . "/../../../../../vendor/autoload.php";
 
 use Justlzz\Solutions\Config\Config;
-use Justlzz\Solutions\Language\Php\Base\ApiInteraction\ApiClient;
-use Justlzz\Solutions\Example\Language\Php\Base\ApiInteraction\Service;
+use Justlzz\Solutions\Php\Base\ApiInteraction\ApiClient;
+use Justlzz\Solutions\Example\Php\Base\ApiInteraction\Service;
 
 $config = new Config('apiInteraction');
 $appId = $config->get('app_id');

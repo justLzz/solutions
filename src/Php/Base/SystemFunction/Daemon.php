@@ -6,7 +6,7 @@ namespace Justlzz\Solutions\Php\Base\SystemFunction;
 /**
  * php实现守护进程
  * Class Daemon
- * @package Justlzz\Solutions\Language\Php\Base\SystemFunction
+ * @package Justlzz\Solutions\Php\Base\SystemFunction
  */
 class Daemon
 {

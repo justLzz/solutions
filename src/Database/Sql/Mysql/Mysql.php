@@ -69,23 +69,25 @@ class Mysql
 
     public function select()
     {
-        try {
-            $preSql = stripos($this->prepareSql, 'FROM') === false ? 'SELECT * FROM ' : 'SELECT ';
-            $pre = $this->pdo->prepare($preSql . $this->prepareSql);
-            $pre->execute($this->values);
-            $res = $pre->fetchAll(\PDO::FETCH_ASSOC);
-            //清空语句和值
-            $this->values = [];
-            $this->prepareSql = '';
-            return $res;
-        } catch (\Exception $exception) {
-            echo $exception->getMessage();
-        }
+        $preSql = stripos($this->prepareSql, 'FROM') === false ? 'SELECT * FROM ' : 'SELECT ';
+        $pre = $this->pdo->prepare($preSql . $this->prepareSql);
+        $pre->execute($this->values);
+        $res = $pre->fetchAll(\PDO::FETCH_ASSOC);
+        //清空语句和值
+        $this->values = [];
+        $this->prepareSql = '';
+        return $res;
     }
 
     public function first()
     {
         return $this->select()[0];
+    }
+
+    public function query($query)
+    {
+        return $this->pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+
     }
 
     public function insert(Array $data)

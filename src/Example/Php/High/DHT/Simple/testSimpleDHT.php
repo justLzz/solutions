@@ -2,8 +2,8 @@
 
 require __DIR__ . "/../../../../../../vendor/autoload.php";
 
-use Justlzz\Solutions\Language\Php\High\DHT\Simple\ConsistentHash;
-use Justlzz\Solutions\Language\Php\High\DHT\Simple\Md5Hash;
+use Justlzz\Solutions\Php\High\DHT\Simple\ConsistentHash;
+use Justlzz\Solutions\Php\High\DHT\Simple\Md5Hash;
 $hash = new ConsistentHash();
 $targets=[
     "192.168.1.1:11011",

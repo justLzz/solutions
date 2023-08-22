@@ -3,7 +3,7 @@ require __DIR__ . "/../../../../../vendor/autoload.php";
 
 use Justlzz\Solutions\Amqp\Rabbitmq\NoticeQueue\NoticeConsumer;
 use Justlzz\Solutions\Config\Config;
-use Justlzz\Solutions\Language\Php\Base\ToolFunction\Notice\Email;
+use Justlzz\Solutions\Php\Base\ToolFunction\Notice\Email;
 
 
 //mq配置

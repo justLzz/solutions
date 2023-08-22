@@ -1,8 +1,8 @@
 <?php
 require __DIR__ . "/../../../../../../vendor/autoload.php";
-use Justlzz\Solutions\Language\Php\Frame\Laravel\Middleware\VerifyCSRFToken;
-use Justlzz\Solutions\Language\Php\Frame\Laravel\Middleware\SetCookie;
-use Justlzz\Solutions\Language\Php\Frame\Laravel\Middleware\VerifyAuth;
+use Justlzz\Solutions\Php\Frame\Laravel\Middleware\VerifyCSRFToken;
+use Justlzz\Solutions\Php\Frame\Laravel\Middleware\SetCookie;
+use Justlzz\Solutions\Php\Frame\Laravel\Middleware\VerifyAuth;
 
 //理解两个函数的作用call_user_func, array_reduce
 //call_user_func ( callable $callback , mixed $parameter = ? , mixed $... = ? ) : mixed

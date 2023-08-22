@@ -10,7 +10,7 @@ use Justlzz\Solutions\Config\ConfigInterface;
 /**
  * 依赖于php Email实现
  * Class Email
- * @package Justlzz\Solutions\Language\Php\Base\ToolFunction
+ * @package Justlzz\Solutions\Php\Base\ToolFunction
  */
 class Email implements NoticeInterface
 {

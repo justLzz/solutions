@@ -2,7 +2,7 @@
 
 namespace Justlzz\Solutions\Database\Nosql\Redis\CurrentLimiting;
 
-use Justlzz\Solutions\Language\Php\Base\DealFunction\DealTime;
+use Justlzz\Solutions\Php\Base\DealFunction\DealTime;
 use Redis;
 
 /**

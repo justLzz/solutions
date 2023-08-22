@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Justlzz\Solutions\Example\Language\Php\Base\ApiInteraction;
+namespace Justlzz\Solutions\Example\Php\Base\ApiInteraction;
 
 use Justlzz\Solutions\Config\Config;
-use Justlzz\Solutions\Language\Php\Base\ApiInteraction\ApiService;
+use Justlzz\Solutions\Php\Base\ApiInteraction\ApiService;
 
 class Service extends ApiService
 {
