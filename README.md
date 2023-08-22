@@ -60,6 +60,7 @@ composer require justlzz/solutions
 - #### 高级部分
 ```$xslt
 1、分布式hash算法
+2、分布式唯一id
 ```
 - #### 应用
 ***

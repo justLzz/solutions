@@ -17,7 +17,8 @@ class Config implements ConfigInterface
     {
         $configFile = __DIR__ . DIRECTORY_SEPARATOR . $configName . '.php';
         if ($configPath) $configFile = $configPath . DIRECTORY_SEPARATOR . $configName . '.php';
-        if (is_file($configFile)) $this->config = include $configFile;
+        if (!is_file($configFile)) throw new \Exception("configFile is not exist");
+        $this->config = include $configFile;
     }
 
     public function set($key, $value)
