@@ -81,7 +81,7 @@ class Mysql
 
     public function first()
     {
-        return $this->select()[0];
+        return isset($this->select()[0]) ? $this->select()[0] : [];
     }
 
     public function query($query)

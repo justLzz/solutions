@@ -27,6 +27,7 @@ composer require justlzz/solutions
 2、redis实现延迟队列
 3、redis实现限流
 4、redis实现分布式锁（两种方式类似于乐观锁和悲观锁）
+5、布隆过滤器
 ```
 ***
 ## （4）设计模式
